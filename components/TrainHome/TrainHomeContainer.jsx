@@ -1,5 +1,3 @@
 export default function TrainHomeContainer() {
-  return (
-    <div>TrainHomeContainer</div>
-  )
+  return <div>TrainHomeContainer</div>;
 }

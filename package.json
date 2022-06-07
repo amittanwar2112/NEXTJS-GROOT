@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,scss,md,json}' --config ./.prettierrc",
+    "format": "prettier --write './**/*.{js,jsx,css,json}' --config ./.prettierrc",
     "lint": "next lint"
   },
   "dependencies": {

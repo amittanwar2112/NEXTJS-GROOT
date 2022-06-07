@@ -1,5 +1,3 @@
-const trainsList = {
-
-}
+const trainsList = {};
 
 export default trainsList;

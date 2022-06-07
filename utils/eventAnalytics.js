@@ -1,7 +1,4 @@
-const eventsList = [
-  'GI:selectTrain',
-  'GI:selectCategory',
-];
+const eventsList = ['GI:selectTrain', 'GI:selectCategory'];
 const isClient = typeof window !== 'undefined';
 
 export const pushEventsToDataLayer = function () {

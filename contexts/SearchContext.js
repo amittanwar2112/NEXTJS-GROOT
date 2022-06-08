@@ -1,4 +1,4 @@
-import {createContext, useState, useEffect, useReducer} from 'react';
+import {createContext, useReducer} from 'react';
 import { getFormattedDate } from '@helpers/utils';
 
 const now = new Date();
@@ -27,10 +27,9 @@ const initialState = {
 
 const searchReducer = (state, action) => {
   const { data } = action;
-  const stateUpdater = (obj) => Object.assign({}, state, obj);
   switch(action.type){
     case 'UPDATE_STORE':
-      return stateUpdater(data);
+      return Object.assign({}, state, data);
     default:
       return state;
   }

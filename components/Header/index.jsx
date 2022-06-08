@@ -1,18 +1,17 @@
 import { getHeader } from '@services/headerfooter';
 import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import Head from 'next/head';
 import Script from 'next/script'
 
 export default function Header() {
-  const [data, setData] = useState({});
-  useEffect(() => {
-    getHeader().then((result) => {
-      setData(result);
-    });
-  }, []);
-  const { html, criticalStyles, js } = data;
-  const javaPart = js?.package || '' ;
+  const { data, isLoading, error } = useQuery('getHeader', getHeader, {
+    staleTime: Infinity
+  });
 
+  if (isLoading) return 'Loading...'
+  if (error) return 'Something went wrong'
+  const { html, criticalStyles, js } = data;
   return (
     <>
       <Head>
@@ -20,7 +19,7 @@ export default function Header() {
           {criticalStyles}
       </style>
       </Head>
-      <Script src={javaPart}></Script>
+      <Script src={js.package}></Script>
       <div dangerouslySetInnerHTML={{ __html: html }} className="headerContainer"/>
     </>
   );

@@ -2,10 +2,10 @@ import { useContext, useRef, useEffect, useState } from 'react';
 import AutoSuggestStations from './AutosuggestStations';
 import AutoSuggestTrains from './AutoSuggestTrains';
 import Calendar from './Calendar/Calendar';
-//import { ERR_MSG_START, ERR_MSG_SRC, ERR_MSG_DES, ERR_MSG_DATE, ERR_MSG_CONNECTOR } from '../../helpers/constants';
+import { ERR_MSG_START, ERR_MSG_SRC, ERR_MSG_DES, ERR_MSG_DATE, ERR_MSG_CONNECTOR } from '@helpers/constants';
 // import AutoSuggestTrains from './Autosuggest/AutosuggestTrains';
 import { SearchContext } from '@contexts/SearchContext';
-//import { logEvent } from '../../helpers/gaEvents';
+import { logEvent } from '@helpers/gaEvents';
 
 const SearchWidget = (props) => {
 	const { storeState, dispatch } = useContext(SearchContext);

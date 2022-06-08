@@ -2,6 +2,7 @@ import '@styles/globals.css';
 import Head from 'next/head';
 import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools'
+import { wrapper } from "../redux/stores"
 //import { PreconnectLinks } from '@components/Scripts/PreconnectLinks';
 //import { GoogleAnalytics } from '@components/Analytics/GoogleAnalytics';
 
@@ -33,4 +34,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);

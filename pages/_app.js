@@ -1,7 +1,11 @@
 import '@styles/globals.css';
 import Head from 'next/head';
+import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools'
 //import { PreconnectLinks } from '@components/Scripts/PreconnectLinks';
 //import { GoogleAnalytics } from '@components/Analytics/GoogleAnalytics';
+
+const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -14,19 +18,16 @@ function MyApp({ Component, pageProps }) {
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link
           rel="preload"
-          href="https://fonts.gstatic.com/s/quicksand/v29/6xKtdSZaM9iE8KbpRA_hK1QNYuDyPw.woff2"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
           href="https://goibibo.ibcdn.com/styleguide/css/fonts/trains/gotrains_v4.woff2?uufuan"
           as="font"
           crossOrigin=""
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
       </Head>
-      <Component {...pageProps} />
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
       {/* <GoogleAnalytics /> */}
     </>
   );

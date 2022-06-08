@@ -1,7 +1,7 @@
 import SearchWidget from '@components/SearchWidget';
 import SearchContextProvider from '@contexts/SearchContext';
 
-export default function TrainHomeContainer() {
+export default function TrainHomeContainer(props) {
   return (
   <div className="homePageWrap">
   <div className="pageBackgroundBlue"></div>

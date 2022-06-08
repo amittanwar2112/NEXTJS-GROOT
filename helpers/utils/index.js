@@ -1,8 +1,30 @@
 import { getAvailability } from "@helpers/api/homeApi";
+import {pushToGa, pushTapEvent} from '@helpers/gaEvents';
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 export const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 export const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+export function loadSiemaCarousel(selectorId, data, noOfItems = 3, shouldMakeAPICall = true) {
+  if (!window.__createCarousel) {
+    if (!window.__carouselSelecterId) {
+      window.__carouselSelecterId = [];
+    }
+    window.__carouselSelecterId.push({
+      selectorId,
+      data,
+      noOfItems,
+      shouldMakeAPICall
+    });
+    return;
+  }
+  window.__createCarousel(
+    selectorId,
+    data,
+    noOfItems,
+    shouldMakeAPICall
+  );
+}
 
 export function callAvailability(availabilityOptions = {}) {
   return getAvailability(availabilityOptions)

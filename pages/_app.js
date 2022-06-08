@@ -1,7 +1,35 @@
-import '../styles/globals.css'
+import '@styles/globals.css';
+import Head from 'next/head';
+//import { PreconnectLinks } from '@components/Scripts/PreconnectLinks';
+//import { GoogleAnalytics } from '@components/Analytics/GoogleAnalytics';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Head>
+        <title>Groot</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+        {/* <PreconnectLinks /> */}
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/quicksand/v29/6xKtdSZaM9iE8KbpRA_hK1QNYuDyPw.woff2"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="https://goibibo.ibcdn.com/styleguide/css/fonts/trains/gotrains_v4.woff2?uufuan"
+          as="font"
+          crossOrigin=""
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+      </Head>
+      <Component {...pageProps} />
+      {/* <GoogleAnalytics /> */}
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;

@@ -6,15 +6,24 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "format": "prettier --write './**/*.{js,jsx,css,json}' --config ./.prettierrc",
     "lint": "next lint"
   },
   "dependencies": {
+    "fuse.js": "^6.6.2",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },
   "devDependencies": {
     "eslint": "8.16.0",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-next": "12.1.6",
+    "husky": "^8.0.1",
+    "prettier": "^2.6.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format"
+    }
   }
 }

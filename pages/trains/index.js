@@ -1,7 +1,11 @@
-import TrainHomeContainer from "../../components/TrainHome/TrainHomeContainer" 
+import Header from '@components/Header/index';
+import TrainHomeContainer from '@components/TrainHome/TrainHomeContainer';
 
 export default function TrainHome() {
   return (
-    <div><TrainHomeContainer></TrainHomeContainer></div>
-  )
+    <>
+      <Header />
+      <TrainHomeContainer />
+    </>
+  );
 }

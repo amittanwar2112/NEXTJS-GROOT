@@ -1,6 +1,10 @@
 import SearchWidget from '@components/SearchWidget';
 import SearchContextProvider from '@contexts/SearchContext';
 import AdBanner from '@components/AdBanner';
+import RecentSearches from '@components/RecentSearchesDhome';
+import CommonAd from "@components/Offers/CommonAd";
+import InformationServices from '@components/IrctcSettings/services';
+import IrctcSettings from '@components/IrctcSettings/IrctcSettings';
 
 export default function TrainHomeContainer(props) {
   return (
@@ -15,10 +19,10 @@ export default function TrainHomeContainer(props) {
       </SearchContextProvider>
       <AdBanner />
     </section>
-    {/* <RecentSearches /> */}
-    {/* <CommonAd pageName="landing" section="top"/> */}
-    {/* <InformationServices currentPage="home" currentPageGa="DwebHome" /> */}
-    {/* <IrctcSettings currentPageGa="DwebHome" /> */}
+    <RecentSearches />
+    <CommonAd pageName="landing" section="top"/>
+    <InformationServices currentPage="home" currentPageGa="DwebHome" />
+    <IrctcSettings currentPageGa="DwebHome" />
   </section>
 </div>
 )

@@ -73,6 +73,19 @@ export function updateSearchToLocalStorage(searchItem) {
   localStorage.setItem('recentTrainSearches', JSON.stringify(trainsList.slice(0, 5)));
 }
 
+export function changeStrToDate(dateStr) {
+  if (typeof(dateStr) === 'string' && dateStr.trim().length === 8) {
+    const year = parseInt(dateStr.slice(0, 4));
+    const month = parseInt(dateStr.slice(4, 6), 10) - 1;
+    const date = parseInt(dateStr.slice(6, 8));
+    const formatter = new Intl.DateTimeFormat('en', {
+      day: 'numeric',
+      month: 'short'
+    });
+    return formatter.format(new Date(year, month, date));
+  }
+}
+
 export function initiateSearch(searchItem, eventName = '', utmParam = '') {
   const { source = {}, destination = {}, train = {} } = searchItem;
   let { date } = searchItem;

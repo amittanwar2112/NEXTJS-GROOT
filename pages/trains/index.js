@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import Header from '@components/Header/index';
+import Header from '@components/Header';
+import Footer from '@components/Footer'
 import TrainHomeContainer from '@components/TrainHome/TrainHomeContainer';
 import HomeContextProvider from '@contexts/HomeContext';
 import { loadSiemaCarousel } from '@helpers/utils';
@@ -19,14 +20,14 @@ export default function TrainHome() {
     //initiateConfig('landing');
     pushToGa('home-page-loaded');
     updatePing();
-    knowIfUserIsLoggedIn().then(resp => {
-      if(resp) {
-        setIsLoggedIn(true);
-        setHasLoginApiResponseRecieved(true);
-      } else {
-        setHasLoginApiResponseRecieved(true);
-      }
-    });
+    // knowIfUserIsLoggedIn().then(resp => {
+    //   if(resp) {
+    //     setIsLoggedIn(true);
+    //     setHasLoginApiResponseRecieved(true);
+    //   } else {
+    //     setHasLoginApiResponseRecieved(true);
+    //   }
+    // });
   },[])
 
   return (
@@ -35,6 +36,7 @@ export default function TrainHome() {
       <HomeContextProvider>
         <TrainHomeContainer isLoggedIn={isLoggedIn} hasLoginApiResponseRecieved={hasLoginApiResponseRecieved}/>
       </HomeContextProvider>
+      <Footer/>
     </>
   );
 }

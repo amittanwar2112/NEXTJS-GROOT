@@ -106,7 +106,7 @@ class AutoSuggestInput extends Component {
       const { inputFieldValue } = this.state;
       const { placeholder, handleInputFocus, autoSuggestClassName = '', handleDisableState = false } = this.props;
       return (
-        <input type="text" ref={this.inputRef} onFocus={handleInputFocus} className={autoSuggestClassName} value={inputFieldValue} onKeyUp={this.onKeyup} placeholder={placeholder} autoComplete="new-password" role="combobox" aria-expanded="false" aria-controls="" disabled={handleDisableState}/>
+        <input type="text" ref={this.inputRef} onFocus={handleInputFocus} className={autoSuggestClassName} defaultValue={inputFieldValue} onKeyUp={this.onKeyup} placeholder={placeholder} autoComplete="new-password" role="combobox" aria-expanded="false" aria-controls="" disabled={handleDisableState}/>
       );
     }
   }

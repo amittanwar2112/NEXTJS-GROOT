@@ -1,4 +1,4 @@
-import { HEADER_URL, FOOTER_DATA_URL } from './config';
+import { HEADER_URL, FOOTER_DATA_URL, FOOTER_DATA } from './config';
 
 export const getHeader = () => {
   const url = HEADER_URL;
@@ -15,18 +15,23 @@ export const getHeader = () => {
   }
 };
 
-export const getFooter = () => {
+export const getFooter = async () => {
   const url = FOOTER_DATA_URL;
   const requestOptions = {
     method: 'GET'
   };
-
   try {
-    const data = fetchFromApi(url, requestOptions);
-    return data;
+    const dataResponseObj = await fetchFromApi(url,requestOptions);
+    const hasFooterData = await dataResponseObj && dataResponseObj.status && dataResponseObj.data;
+    const footerData = hasFooterData ? hasFooterData : FOOTER_DATA
+    if(dataResponseObj.error) {
+      handleError('Footer data');
+    }
+    return footerData;
   } catch (error) {
-    //   logger.error(JSON.stringify(error));
-    throw error;
+    const data = FOOTER_DATA;
+    handleError('Footer Data', error);
+    return data;
   }
 };
 
@@ -41,4 +46,8 @@ const fetchFromApi = async (url, options) => {
   }
 
   return null;
+};
+
+const handleError = function(msg = '', err = '') {
+  console.error('Error getting ', msg, err);
 };

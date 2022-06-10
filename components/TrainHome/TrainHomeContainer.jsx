@@ -1,5 +1,6 @@
 import SearchWidget from '@components/SearchWidget';
 import SearchContextProvider from '@contexts/SearchContext';
+import AdBanner from '@components/AdBanner';
 
 export default function TrainHomeContainer(props) {
   return (
@@ -12,7 +13,7 @@ export default function TrainHomeContainer(props) {
       <SearchContextProvider>
         <SearchWidget />
       </SearchContextProvider>
-      {/* <AdBanner /> */}
+      <AdBanner />
     </section>
     {/* <RecentSearches /> */}
     {/* <CommonAd pageName="landing" section="top"/> */}

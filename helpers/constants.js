@@ -2,6 +2,46 @@ export const loading = 'Loading...';
 export const errorText = 'Something went wrong, Please try again';
 export const errorToastMessage = 'Sorry, we are getting some issue right now. Please try again later.';
 
+export const ALL_TRAIN_ROUTES = {
+  HEALTH_CHECK: '/groot/ping*',
+  HEALTH_CHECK_API:'/trains/api/health',
+  STATUS_INFO: '/trains/statusinfo*',
+  METRO_FAQ: '/trains/metro-faq*',
+  WIDGET: '/trains/widget/',
+  WIDGETAPI: '/trains/widget-api/',
+  PURGE_TRAINS: '/trains/purge/*',
+  TAKE_SCREENSHOT: '/trains/middleware/takescreenshot/',
+  TRAINS_REDIRECT: '/trains/redirect',
+
+  TRAIN_ROUTES: '/trains/*',
+  HOME_MWEB: '/trains/m',
+  HOME_DWEB: '/trains',
+  SRP: '/trains/srp/',
+  SRP_DWEB: '/trains/dsrp/',
+  REVIEW_MWEB: '/trains/review/m/',
+  REVIEW_DWEB: '/trains/review/d/',
+  REVIEW: '/trains/review/',
+  CREATE_USERID: '/trains/create-irctc-account/',
+  OLD_CREATE_USERID: '/trains/irctc-create-userid/',
+  RESET_USER_ID: '/trains/irctc-forgot-userid/',
+  FORGOT_PASSWORD_ROUTE: '/trains/irctc-forgot-password/',
+  PNR_HOME: '/trains/check-pnr-status/',
+  PNR_RESULT: '/trains/view/pnr-result/',
+  TRAIN_STATUS_HOME: '/trains/check-train-running-status/',
+  TRAIN_STATUS_RESULT: '/trains/app/trainstatus/results/',
+  PL_HOME: '/trains/platform-locator/',
+  PL_RESULT_URL: '/trains/platform-locator-results/',
+  THANK_YOU: '/trains/booking/info/',
+
+  TRAINS_HOME: `/trains/home/`,
+  COVID_SRP: '/trains/home/covid-trains/',
+  COVID_HOME: `/trains/home/covid-search/`,
+  COVID_EPASS: `/trains/home/covid-epass/`,
+  COVID_TRAVEL_OPTIONS: `/trains/home/covid-travel-options/`,
+  COVID_TNC: '/trains/home/tnc-covid*',
+  DWEB_PAYMENT: '/trains/pay/d/'
+};
+
 export const CAB_EPASS = '/cars/covid-epass/';
 
 export const IRCTC_LOGO_URL = 'https://gos3.ibcdn.com/itctcnew_logo-1573024091.png';

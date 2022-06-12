@@ -14,8 +14,8 @@ export const ALL_TRAIN_ROUTES = {
   TRAINS_REDIRECT: '/trains/redirect',
 
   TRAIN_ROUTES: '/trains/*',
-  HOME: '/trains/',
-  HOME_DWEB: '/trains/d/',
+  HOME_MWEB: '/trains/m',
+  HOME_DWEB: '/trains',
   SRP: '/trains/srp/',
   SRP_DWEB: '/trains/dsrp/',
   REVIEW_MWEB: '/trains/review/m/',

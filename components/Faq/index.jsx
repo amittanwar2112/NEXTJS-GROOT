@@ -1,8 +1,7 @@
 const Faq = (props) => {
+  const {faqTemplateData} = props;
   return (
-    <div className="pageFtrCnt__topTrnsCnt">
-      Himanshu
-    </div>
+    <div dangerouslySetInnerHTML={{ __html: faqTemplateData }}/>
   );
 }
 

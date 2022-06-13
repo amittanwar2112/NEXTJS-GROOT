@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node server.js",
+    "dev": "NODE_ENV=development node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
     "start:prod": "pm2 start node --name groot -i max server.js",
@@ -26,6 +26,7 @@
     "zlib": "^1.0.5"
   },
   "devDependencies": {
+    "dotenv": "^16.0.1",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6",
     "husky": "^8.0.1",

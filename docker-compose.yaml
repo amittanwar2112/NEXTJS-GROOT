@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  nextjsgroot:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: docker_app_nextjsgroot
+    container_name: nextjsgroot_cont
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./:/home/ci/www/Nextjs-Groot
+      - /home/ci/www/Nextjs-Groot/node_modules
+    stdin_open: true
+    tty: true

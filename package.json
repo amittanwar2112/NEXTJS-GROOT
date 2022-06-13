@@ -3,18 +3,38 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_ENV=development node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
+    "start:prod": "pm2 start node --name groot -i max server.js",
+    "format": "prettier --write './**/*.{js,jsx,css,json}' --config ./.prettierrc",
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.1.6",
-    "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "express": "^4.18.1",
+    "fuse.js": "^6.6.2",
+    "marked": "^4.0.16",
+    "next": "^12.1.6",
+    "next-redux-wrapper": "^7.0.5",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-query": "^3.39.1",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1",
+    "siema": "^1.5.1",
+    "zlib": "^1.0.5"
   },
   "devDependencies": {
+    "dotenv": "^16.0.1",
     "eslint": "8.16.0",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-next": "12.1.6",
+    "husky": "^8.0.1",
+    "prettier": "^2.6.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format"
+    }
   }
 }

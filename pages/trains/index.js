@@ -47,17 +47,19 @@ export default function TrainHome(props) {
 }
 
 // Runs only on server side and populates the state data for the components
-export const getServerSideProps = async ({ req, res, params, resolvedUrl}) => {
+export const getServerSideProps = async (context) => {
 
+  const {req, res, query} = context;
   // TODO: fix the url condition based on desktop and mobile like '/trains/d' or '/trains'
   const { url: key = '' } = req;
+  const keyUrl = key.split('?')[0]; 
 	const { NODE_ENV } = process.env;
 	const isMobile = isMobileDevice(req.headers['user-agent']);
-	const cb = req.query?.cb;
-	const hcb = req.query?.hcb;
+	const cb = query?.cb;
+	const hcb = query?.hcb;
   const cacheConfigReq = USE_REDIS_CACHE_SEO && NODE_ENV === 'production';
   //console.log("cb,hcb,NODE_ENV=>",cb, hcb, NODE_ENV);
-  const sendFaqTemplate = await checkFaqTemplate(cb,hcb,cacheConfigReq,key,req ,res, isMobile);
+  const sendFaqTemplate = await checkFaqTemplate(cb,hcb,cacheConfigReq,keyUrl,req ,res, isMobile);
 
 
   return {

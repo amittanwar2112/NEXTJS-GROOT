@@ -3,11 +3,20 @@ const { createServer } = require('http');
 const { parse } = require('url');
 const next = require('next');
 const express = require('express');
+const {createRedisInstance} = require('./redis/redisdb');
+const {pubSubRedis} = require('./redis/redis-pubsub')
+
 require('dotenv').config({ path: `./.env.${process.env.NODE_ENV}` })
 
 
 const {setGlobals} = require('./helpers/env_setter');
 setGlobals();
+
+//console.log(createRedisInstance);
+
+createRedisInstance(function(client) {
+  pubSubRedis(client, 'voyagerData');
+});
 
 const PORT = parseInt(process.env.PORT, 10) || 3000;
 

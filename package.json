@@ -20,6 +20,7 @@
     "react-dom": "^18.1.0",
     "react-query": "^3.39.1",
     "react-redux": "^8.0.2",
+    "redis": "^3.0.2",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
     "siema": "^1.5.1",

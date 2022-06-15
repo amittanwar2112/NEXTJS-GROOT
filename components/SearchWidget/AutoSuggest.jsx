@@ -1,6 +1,7 @@
 import {Component, createRef, Fragment} from 'react';
 import OutsideAlerter from '@components/Home/useOutsideAlerter';
 import AutoSuggestInput from './AutosuggestInput';
+import styles from '../../styles/Home.module.css'
 
 class AutoSuggest extends Component {
     constructor(props) {
@@ -81,10 +82,9 @@ class AutoSuggest extends Component {
 
    renderAutosuggest(suggestions) {
     const {listItemMarkup, suggestionClicked, trains = false} = this.props;
-    const className = trains ? 'trainsSuggestionBox' : '';
     return (
-      <div className={"searchWidgetDropdown  "+ className} id="autosuggest">
-        <ul className="dropdownList">{
+      <div className={`${styles.searchWidgetDropdown} ${(trains?styles.trainsSuggestionBox:'')}`}  id="autosuggest">
+        <ul className={`${styles.dropdownList}`} >{
           suggestions.map((suggestion, index) => {
             const {isHeading = false} = suggestion;
             if (isHeading) {
@@ -107,8 +107,8 @@ class AutoSuggest extends Component {
         suggestions.slice(0, maxItems);
       }
       const comp = (
-        <div className="flex row" onClick={this.handleClick}>
-          <span><i className="icon-search ico15 greyDr"></i></span>
+        <div className={`${styles.flex} ${styles.row}`}  onClick={this.handleClick}>
+          <span><i className={`${styles.iconsearch} ico15 greyDr`} ></i></span>
           <AutoSuggestInput ref={this.autosuggestInputRef} suggestionClicked={suggestionClicked} placeholder={placeholder} handleInputFocus={handleInputFocus} autoSuggestClassName={autoSuggestClassName} handleDisableState={handleDisableState} handleKeyUp={handleKeyUp} delay={delay} callback={callback}/>
           {/* <input type="text" ref={this.inputRef} onFocus={handleInputFocus} className={autoSuggestClassName} value={inputFieldValue} onKeyUp={this.onKeyup} placeholder={placeholder} autocomplete="new-password" role="combobox" disabled={handleDisableState}/> */}
           {suggestions.length > 0 ? this.renderAutosuggest(suggestions) : null }

@@ -55,7 +55,7 @@ const Month = ({ month, year, getDisabledDays = ()=>{}, updateDate, selectedDay,
                   const totalCols = (rIndex * 7) + cIndex + 1;
                   if (dateVal <= 0 || dateVal > totalDays) {
                     return (
-                      <div className="DayPicker-Day-wrap">
+                      <div key={cIndex} className="DayPickerDaywrap">
                         <div className="DayPicker-Day DayPicker-Day--disabled DayPicker-Day--outside"></div>
                         </div>
                     )

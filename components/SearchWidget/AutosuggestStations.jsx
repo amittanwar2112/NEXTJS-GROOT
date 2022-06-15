@@ -4,6 +4,7 @@ import { PLACEHOLDER_SOURCE, PLACEHOLDER_DESTINATION, POPULAR_STATIONS_SUGGEST }
 import {findRecentlySearchedUniqueStations} from '@helpers/utils';
 import { pushTapEvent } from '@helpers/gaEvents';
 import { AutoSuggestApi } from '@helpers/api';
+import styles from '../../styles/Home.module.css'
 
 
 class AutoSuggestStations extends Component {
@@ -100,7 +101,7 @@ class AutoSuggestStations extends Component {
 			);
 			return (
 				<Fragment>
-					<span className="padR15"><i className="icon-trains-new ico20 grey75"></i></span>
+					<span className="padR15"><i className={`ico20 ${styles.icontrainsnew} grey75 `}></i></span>
 					<div>
 						<p className="ico16 black padB5">{cn}</p>
 						<p className="grey50 ico12">{suggestion.irctc_code} - {$stationName}</p>

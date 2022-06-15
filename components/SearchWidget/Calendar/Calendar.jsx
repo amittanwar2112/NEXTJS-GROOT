@@ -5,6 +5,7 @@ import { getMonthYearForDate, DAYS, convertToDateObj, getFormattedDate, updateSe
 import { callAvailability } from '@helpers/utils';
 import { pushTapEvent } from '@helpers/gaEvents';
 import { getReviewBaseURL } from '@helpers/utils/dwebReviewUtils';
+import styles  from '../../../styles/Home.module.css'
 
 const now = new Date();
 let todayDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0);
@@ -143,12 +144,12 @@ const CalendarMain = ( { resetErrorMessage = () => {} } ) => {
     }
 
     return (
-      <div className="DayPicker-Day-wrap curPoint">
-        <div className={'DayPicker-Day txtCenter ' + addedClass + ' availabilityStatus'} style={bgStyle+(isDisabled ? "pointer-events:none;" : "")} onClick={() => {handleDateClick({isDisabled, dateVal}); updateDate();}}>
+      <div className={`${styles.DayPickerDaywrap} ${styles.curPoint}`} >
+        <div className={`${styles.DayPickerDay} ${styles.txtCenter} ${styles.addedClass} ${styles.availabilityStatus}`}  style={bgStyle+(isDisabled ? "pointer-events:none;" : "")} onClick={() => {handleDateClick({isDisabled, dateVal}); updateDate();}}>
           {dateVal}
         </div>
         {(showAvl && availability.length && availability[dateVal-1] && availability[dateVal-1].status && (
-          <div className="width100 ico12 availabilityStatus bold padT5 flex" style={style}>
+          <div className={`${styles.width100} ${styles.ico12} ${styles.availabilityStatus} ${styles.bold} ${styles.padT5} ${styles.flex}`}  style={style}>
             { availability[dateVal-1].status }
           </div>))||[]}
       </div>
@@ -157,17 +158,17 @@ const CalendarMain = ( { resetErrorMessage = () => {} } ) => {
 
   const renderToggler = () => {
     return (
-      <div className="padT20 padLR20">
-        <div className="trainTypeTabs">
-            <p className={"curPoint "+(isActive ? "active" : "")} onClick={handleTrainNameClick}><span>{TrainText}</span></p>
-            <p className={"curPoint "+(!isActive ? "active" : "")} onClick={handleAllTrainClick}><span>All Trains</span></p>
+      <div  className={`${styles.padT20} ${styles.padLR20}`} >
+        <div  className={`${styles.trainTypeTabs}`}>
+            <p  className={`${styles.curPoint} ${isActive?styles.active:''}`}  onClick={handleTrainNameClick}><span>{TrainText}</span></p>
+            <p className={`${styles.curPoint} ${!isActive?styles.active:''}`}  onClick={handleAllTrainClick}><span>All Trains</span></p>
         </div>
         {isActive ? (
         <Fragment >
           {/* <p class="fontQuick fb ico18 padB20">{TrainText}</p> */}
-          <div className="trainClassTabs">
+          <div className={`${styles.trainClassTabs}`} >
           {classes.map((class_type,index) =>
-            (<p key={index} className={"curPoint " +(travelClass === class_type ? "active" : "")} onClick={() => onChangeClassType(class_type)}><span>{class_type}</span></p>)
+            (<p key={index} className={`${styles.curPoint} ${(travelClass === class_type ? styles.active : "")}`}  onClick={() => onChangeClassType(class_type)}><span>{class_type}</span></p>)
           )}
         </div>
         </Fragment>) : null}
@@ -179,25 +180,25 @@ const CalendarMain = ( { resetErrorMessage = () => {} } ) => {
       <Fragment>
         {
           isActive ? (
-            <div className="calendarFooter">
-                  <p className="ico14 grey50 padB10">Color codes</p>
-                  <div className="flex row alignCenter">
-                     <div className="padR10">
-                        <span className="dots calGreen"></span>
-                        <span className="ico12 grey75">Available, RAC</span>
+            <div className={`${styles.calendarFooter}`} >
+                  <p className={`${styles.ico14} ${styles.grey50} ${styles.padB10}`} >Color codes</p>
+                  <div className={`${styles.flex} ${styles.row} ${styles.alignCenter}`} >
+                     <div className={`${styles.padR10}`} >
+                        <span className={`${styles.dots} ${styles.calGreen}`} ></span>
+                        <span className={`${styles.ico12} ${styles.grey75}`} >Available, RAC</span>
                      </div>
-                     <div className="padR10">
-                        <span className="dots calOrange"></span>
-                        <span className="ico12 grey75">Waiting List</span>
+                     <div className={`${styles.padR10}`} >
+                        <span className={`${styles.dots} ${styles.calOrange}`}></span>
+                        <span  className={`${styles.ico12} ${styles.grey75}`}>Waiting List</span>
                      </div>
-                     <div className="padR10">
-                        <span className="dots calGrey"></span>
-                        <span className="ico12 grey75">Status unknown</span>
+                     <div className={`${styles.padR10}`}>
+                        <span className={`${styles.dots} ${styles.calGrey}`} ></span>
+                        <span className={`${styles.ico12} ${styles.grey75}`} >Status unknown</span>
                      </div>
                   </div>
-                  <div className="padT10">
-                     <span className="dots calRed"></span>
-                     <span className="ico12 grey75">Regret, Departed, Train doesnot run</span>
+                  <div className={`${styles.padR10}`}>
+                     <span className={`${styles.dots} ${styles.calRed}`}></span>
+                     <span className={`${styles.ico12} ${styles.grey75}`} >Regret, Departed, Train doesnot run</span>
                   </div>
                </div>
           ) :  null
@@ -222,13 +223,13 @@ const CalendarMain = ( { resetErrorMessage = () => {} } ) => {
 
   return (
     <Fragment>
-      <div className="width50">
+      <div className={`${styles.width50}`} >
         <label>
-          <p className="grey50 ico16 padB5">Date</p>
-          <p className="widgetInput width100 textInput width100" style={{marginLeft: '1px'}} onClick={() => { console.log({showCalendar});dispatchToStore({showCalendar: true})}}>{day}, {dateInputValue}</p>
+          <p className={`${styles.grey50} ${styles.ico16} ${styles.padB5}`} >Date</p>
+          <p className={`${styles.widgetInput} ${styles.width100} ${styles.textInput} ${styles.width100}`}  style={{marginLeft: '1px'}} onClick={() => { console.log({showCalendar});dispatchToStore({showCalendar: true})}}>{day}, {dateInputValue}</p>
         </label>
         {showCalendar ?
-          <div className="calendarWrap">
+          <div className={`${styles.calendarWrap}`}>
             <Calendar
             cbOnCloseCalendar={cbOnCloseCalendar}
             cbOnDateSelect={cbOnDateSelect}
@@ -242,20 +243,20 @@ const CalendarMain = ( { resetErrorMessage = () => {} } ) => {
           </div>
          : null}
         </div>
-        <div className="DateToggleWrap">
-          <p className="grey50 ico16 padB5 vh">Date</p>
-          <div className="flex row">
-            <label className="padR20">
-              <span className="padR5">
+        <div className={`${styles.DateToggleWrap}`} >
+          <p className={`${styles.grey50} ${styles.ico16} ${styles.padB5} ${styles.vh}`} >Date</p>
+          <div className={`${styles.flex} ${styles.row}`} >
+            <label className={`${styles.padR20}`} >
+              <span className={`${styles.padR5}`} >
                 <input id="today" checked={today} onChange={(ev) => handleDateTabClick(ev, 0)} type="radio" name="day"/>
               </span>
-              <span className="fontQuick ico16 fb">Today</span>
+              <span className={`${styles.fontQuick} ${styles.ico16} ${styles.fb}`} >Today</span>
             </label>
-            <label className="padL20">
-              <span className="padR5">
+            <label className={`${styles.padL20}`} >
+              <span className={`${styles.padR5}`} >
                 <input id="today" checked={tomorrow}  onChange={(ev) => handleDateTabClick(ev, 1)} type="radio" name="day"/>
               </span>
-              <span className="fontQuick ico16 fb">Tommorow</span>
+              <span className={`${styles.fontQuick} ${styles.ico16} ${styles.fb}`} >Tommorow</span>
             </label>
           </div>
         </div>

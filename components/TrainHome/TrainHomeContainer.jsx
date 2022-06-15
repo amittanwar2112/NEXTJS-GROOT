@@ -5,16 +5,16 @@ import RecentSearches from '@components/RecentSearchesDhome';
 import CommonAd from "@components/Offers/CommonAd";
 import InformationServices from '@components/IrctcSettings/services';
 import IrctcSettings from '@components/IrctcSettings/IrctcSettings';
-
+import styles from '../../styles/Home.module.css'
 export default function TrainHomeContainer(props) {
   return (
     <>
-    <div className="homePageWrap">
-      <div className="pageBackgroundBlue"></div>
-      <div className="pageBackgroundLight"></div>
-      <section className="pageContentWrap">
-        <h1 className="titleHeader">Book IRCTC train tickets</h1>
-        <section className="componentWrap">
+    <div className={`${styles.homePageWrap}`} >
+      <div className={`${styles.pageBackgroundBlue}`} ></div>
+      <div className={`${styles.pageBackgroundLight}`} ></div>
+      <section  className={`${styles.pageContentWrap}`}  >
+        <h1 className={`${styles.titleHeader}`} >Book IRCTC train tickets</h1>
+        <section className={`${styles.componentWrap}`} >
           <SearchContextProvider>
             <SearchWidget />
           </SearchContextProvider>

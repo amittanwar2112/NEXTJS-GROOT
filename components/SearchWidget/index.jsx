@@ -6,6 +6,7 @@ import { ERR_MSG_START, ERR_MSG_SRC, ERR_MSG_DES, ERR_MSG_DATE, ERR_MSG_CONNECTO
 // import AutoSuggestTrains from './Autosuggest/AutosuggestTrains';
 import { SearchContext } from '@contexts/SearchContext';
 import { logEvent } from '@helpers/gaEvents';
+import styles from '../../styles/Home.module.css'
 
 const SearchWidget = (props) => {
 	const { storeState, dispatch } = useContext(SearchContext);
@@ -126,20 +127,20 @@ const SearchWidget = (props) => {
   }
 
 	return (
-		<section className="homeSearchWidget">
-			<aside className="widgetRow borderBottom0">
-        <AutoSuggestStations ref={srcRef} trainRef={trainRef} dispatchToStore={dispatchToStore} resetErrorMessage={resetErrorMessage} labelClassName="width45 posRel borderBottomGrey" autoSuggestClassName="textInput width100 ellipsis" isSrc inputStyle="margin-left:4px"/>
-        <span onClick={swapStations}><i className="icon-swap3 goBlue ico30"></i></span>
-        <AutoSuggestStations ref={destRef}  trainRef={trainRef} dispatchToStore={dispatchToStore} resetErrorMessage={resetErrorMessage} labelClassName="width45 txtRight toDestination borderBottomGrey" autoSuggestClassName="textInput width100 txtRight ellipsis" inputStyle="margin-left:1px"/>
+		<section className={styles.homeSearchWidget}>
+			<aside className={`${styles.widgetRow } ${styles.borderBottom0}`}>
+        <AutoSuggestStations ref={srcRef} trainRef={trainRef} dispatchToStore={dispatchToStore} resetErrorMessage={resetErrorMessage} labelClassName={`width45 posRel ${styles.borderBottomGrey}`}   autoSuggestClassName={`${styles.textInput} width100 ${styles.ellipsis}`}  isSrc inputStyle="margin-left:4px"/>
+        <span onClick={swapStations}><i className={`${styles.iconswap3} goBlue ico30`}></i></span>
+        <AutoSuggestStations ref={destRef}  trainRef={trainRef} dispatchToStore={dispatchToStore} resetErrorMessage={resetErrorMessage} labelClassName={`width45 txtRight ${styles.toDestination} ${styles.borderBottomGrey}`}   autoSuggestClassName={`${styles.textInput} width100 ${styles.ellipsis} txtRight`} inputStyle="margin-left:1px"/>
       </aside>
-			<aside className="padT15 widgetRow">
-				<AutoSuggestTrains storeState={storeState} disabled={disabledState} clickOnDisableStateHandler={validateEntries} ref={trainRef} dispatchToStore={dispatchToStore} resetErrorMessage={resetErrorMessage} labelClassName="width100" autoSuggestClassName="textInput width100" inputStyle="margin-left:4px"/>
+			<aside className={`padT15 ${styles.widgetRow}`}>
+				<AutoSuggestTrains storeState={storeState} disabled={disabledState} clickOnDisableStateHandler={validateEntries} ref={trainRef} dispatchToStore={dispatchToStore} resetErrorMessage={resetErrorMessage} labelClassName={`width100`} autoSuggestClassName={`${styles.textInput} width100`} inputStyle="margin-left:4px"/>
 			</aside>
-			<aside className="padT15 widgetRow">
+			<aside className={`padT15 ${styles.widgetRow}`}>
 				<Calendar resetErrorMessage={resetErrorMessage} />
 			</aside>
-			<aside className="searchButtonWrap" onClick={beginSearch}>
-				<button className="searchBtn curPointer">Search Trains</button>
+			<aside className={`${styles.searchButtonWrap}`} onClick={beginSearch}>
+				<button className={`${styles.searchBtn} ${styles.curPointer}`}>Search Trains</button>
 			</aside>
 			{
 				errorMsg ?

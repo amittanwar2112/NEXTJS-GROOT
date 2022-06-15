@@ -5,6 +5,7 @@ import { callAvailability } from '@helpers/utils';
 import { knowMyTrain } from '@helpers/api/homeApi';
 import Fuse from 'fuse.js';
 import { pushTapEvent } from '@helpers/gaEvents';
+import styles from '../../styles/Home.module.css'
 
 let fuseInstance = null;
 const options = {
@@ -104,10 +105,10 @@ class AutoSuggestTrains extends Component {
 		);
 		return (
 			<Fragment>
-				<span className="padR15"><i className="icon-trains-new ico20 grey75"></i></span>
+				<span className="padR15"><i  className={`${styles.icontrainsnew}  ico20 grey75`} ></i></span>
 				<div title={suggestion.dn}>
 					<p className="ico16 black padB5">{$stationName}</p>
-					<p className="grey50 ico12 lh1-2">{suggestion.source} - {suggestion.destination}</p>
+					<p className="grey50 ico12 lh12">{suggestion.source} - {suggestion.destination}</p>
 				</div>
 			</Fragment>
 		);

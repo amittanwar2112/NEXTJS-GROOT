@@ -150,16 +150,16 @@ function getFAQMetaDataCall(url){
 		});
 }
 
-async function sendNewTemplate(req,res, isMobile, shouldUpdateCache = false) {
+async function sendNewTemplate(req,res, isMobile, shouldUpdateCache = false, key) {
 	try {
-		//const { pathname: key = '' } = req._parsedUrl;
-    const { url: key = '' } = req;
-    const keyUrl = key.split('?')[0]; 
+		//const { pathname: key123 = '' } = req._parsedUrl;
+    //const { url: key = '' } = req;
+    //const keyUrl = key.split('?')[0]; 
     const metaData= (await getFAQMetaDataCall(`${process.env.PAGE_ROVER}/gt_rail/api/v1/get_seo_page_data`)) || {};
 		const templateWithId = await generateFaqTemplate(req,key,metaData);
 		const template = addScriptToTemplate(templateWithId, false, isMobile);
 		if (shouldUpdateCache) {
-			storeInRedis(templateWithId, keyUrl);
+			storeInRedis(templateWithId, key);
 		}
       return template;
 	} catch (err) {console.log(err,"Error");}
@@ -221,13 +221,13 @@ export async function checkFaqTemplate(cb,hcb,cacheConfigReq,key,req,res, isMobi
         global.__REDISCONFIG__.REDISINSTANCE.get(new Buffer(key), function (err, compressedTemplate) {
           if (err || !compressedTemplate) {
             console.log('Redis hit miss, key:', key, err);
-            resolve(sendNewTemplate(req,res, isMobile, cacheConfigReq));
+            resolve(sendNewTemplate(req,res, isMobile, cacheConfigReq, key));
           } 
           else {
           console.log('Redis hit success, key:', key);
           zlib.gunzip(compressedTemplate, { encoding: null }, function (err, template) {
             if (err) {
-              resolve (sendNewTemplate(req,res, isMobile, cacheConfigReq));
+              resolve (sendNewTemplate(req,res, isMobile, cacheConfigReq, key));
             } else {
               const templateString = template.toString();
               const clientTemplate = addScriptToTemplate(templateString, true, isMobile);
@@ -241,7 +241,7 @@ export async function checkFaqTemplate(cb,hcb,cacheConfigReq,key,req,res, isMobi
      else {
       console.log("Sending New Faq Template in Prod when cb/hcb present");
       let shouldUpdateCache = cacheConfigReq && (cb === '1'||hcb==='1');
-      return sendNewTemplate(req,res, isMobile, shouldUpdateCache);
+      return sendNewTemplate(req,res, isMobile, shouldUpdateCache, key);
     }
   }
   catch (err) {console.log(err,"error");}

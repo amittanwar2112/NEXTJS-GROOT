@@ -1,4 +1,4 @@
-// import zlib from 'zlib';
+import zlib from 'zlib';
 //import { isMobileDevice } from '@helpers/serverUtils';
 import { USE_REDIS_CACHE_SEO,SEO_META_DATA } from '@services/config';
 import { ALL_TRAIN_ROUTES } from '@helpers/constants';
@@ -113,24 +113,24 @@ function addScriptToTemplate(template, __fromCache__, isMobile) {
 	return template;
 }
 
-// function storeInRedis(templateWithId, key) {
-// 	if (global.__REDISCONFIG__.REDISINSTANCE) {
-// 		// gZipping
-// 		zlib.gzip(templateWithId, { encoding: null }, function (compressErr, compressedTemplate) {
-// 			if (compressErr) {
-// 				return;
-// 			}
-// 			// Redis Storing
-// 			global.__REDISCONFIG__.REDISINSTANCE.set(key, compressedTemplate, 'EX', 604800, function (err, resp) {
-// 				if (err) {
-// 					console.log('Error updating redis!\n', err);
-// 				} else {
-// 					console.log(`updated redis mem, key: ${key}`);
-// 				}
-// 			});
-// 		});
-// 	}
-// }
+function storeInRedis(templateWithId, key) {
+	if (global.__REDISCONFIG__.REDISINSTANCE) {
+		// gZipping
+		zlib.gzip(templateWithId, { encoding: null }, function (compressErr, compressedTemplate) {
+			if (compressErr) {
+				return;
+			}
+			// Redis Storing
+			global.__REDISCONFIG__.REDISINSTANCE.set(key, compressedTemplate, 'EX', 604800, function (err, resp) {
+				if (err) {
+					console.log('Error updating redis!\n', err);
+				} else {
+					console.log(`updated redis mem, key: ${key}`);
+				}
+			});
+		});
+	}
+}
 
 function getFAQMetaDataCall(url){
   return fetch(url)
@@ -150,16 +150,17 @@ function getFAQMetaDataCall(url){
 		});
 }
 
-async function sendNewTemplate(req,res, isMobile, shouldUpdateCache = false) {
+async function sendNewTemplate(req,res, isMobile, shouldUpdateCache = false, key) {
 	try {
-		//const { pathname: key = '' } = req._parsedUrl;
-    const { url: key = '' } = req;
+		//const { pathname: key123 = '' } = req._parsedUrl;
+    //const { url: key = '' } = req;
+    //const keyUrl = key.split('?')[0]; 
     const metaData= (await getFAQMetaDataCall(`${process.env.PAGE_ROVER}/gt_rail/api/v1/get_seo_page_data`)) || {};
 		const templateWithId = await generateFaqTemplate(req,key,metaData);
 		const template = addScriptToTemplate(templateWithId, false, isMobile);
-		// if (shouldUpdateCache) {
-		// 	storeInRedis(templateWithId, key);
-		// }
+		if (shouldUpdateCache) {
+			storeInRedis(templateWithId, key);
+		}
       return template;
 	} catch (err) {console.log(err,"Error");}
 }
@@ -214,21 +215,35 @@ function generateInterlinksTemplate(interlinks) {
 }
 
 export async function checkFaqTemplate(cb,hcb,cacheConfigReq,key,req,res, isMobile){
-  try {
-    let shouldUpdateCache = cacheConfigReq && (cb === '1'||hcb==='1');
-    return sendNewTemplate(req, res, isMobile, shouldUpdateCache);
-  } catch (error) {
-    console.log(error,"error");
+  try{
+    if (USE_REDIS_CACHE_SEO && !cb && !hcb && global.__REDISCONFIG__.REDISINSTANCE) {
+      return new Promise((resolve,reject)=>{
+        global.__REDISCONFIG__.REDISINSTANCE.get(new Buffer(key), function (err, compressedTemplate) {
+          if (err || !compressedTemplate) {
+            console.log('Redis hit miss, key:', key, err);
+            resolve(sendNewTemplate(req,res, isMobile, cacheConfigReq, key));
+          } 
+          else {
+          console.log('Redis hit success, key:', key);
+          zlib.gunzip(compressedTemplate, { encoding: null }, function (err, template) {
+            if (err) {
+              resolve (sendNewTemplate(req,res, isMobile, cacheConfigReq, key));
+            } else {
+              const templateString = template.toString();
+              const clientTemplate = addScriptToTemplate(templateString, true, isMobile);
+              resolve(clientTemplate);
+            }
+          });
+        }
+      })
+      });
+    }
+     else {
+      console.log("Sending New Faq Template in Prod when cb/hcb present");
+      let shouldUpdateCache = cacheConfigReq && (cb === '1'||hcb==='1');
+      return sendNewTemplate(req,res, isMobile, shouldUpdateCache, key);
+    }
   }
-}
+  catch (err) {console.log(err,"error");}
 
-// export default async(req, res)=> {
-// 	const { pathname: key = '' } = req._parsedUrl;
-// 	const { NODE_ENV } = process.env;
-// 	const isMobile = isMobileDevice(req.get('User-Agent'));
-// 	const cb = req.query.cb;
-// 	const hcb = req.query.hcb;
-// 	const cacheConfigReq = USE_REDIS_CACHE_SEO && NODE_ENV === 'production';
-//   const sendFaqTemplate = await checkFaqTemplate(cb,hcb,cacheConfigReq,key,req ,res, isMobile,);
-//   return sendFaqTemplate;
-// }
+}

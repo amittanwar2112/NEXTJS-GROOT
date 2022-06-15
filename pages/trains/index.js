@@ -1,17 +1,23 @@
 import { useState, useEffect } from 'react';
+import { QueryClient } from 'react-query';
+import { dehydrate } from 'react-query/hydration';
+import dynamic from 'next/dynamic';
 import Header from '@components/Header';
-import Footer from '@components/Footer'
+//import Footer from '@components/Footer'
 import TrainHomeContainer from '@components/TrainHome/TrainHomeContainer';
+import Faq from '@components/Faq'
+import {checkFaqTemplate} from '@components/Faq/FaqTemplate'
 import HomeContextProvider from '@contexts/HomeContext';
 import { loadSiemaCarousel } from '@helpers/utils';
 import { updatePing } from '@helpers/utils/ping';
 import { pushToGa } from '@helpers/gaEvents';
 import { knowIfUserIsLoggedIn } from '@helpers/api/commonApi';
 import { initiateConfig } from '@helpers/utils/adConfig';
-import Faq from '@components/Faq'
 import { isMobileDevice } from '@helpers/serverUtils';
 import { USE_REDIS_CACHE_SEO,SEO_META_DATA } from '@services/config';
-import {checkFaqTemplate} from '@components/Faq/FaqTemplate'
+import { getHeader, getFooter } from '@services/headerfooter';
+
+const Footer = dynamic(() => import('@components/Footer'));
 
 export default function TrainHome(props) {
   const {faqTemplate}  = props;
@@ -47,21 +53,33 @@ export default function TrainHome(props) {
 }
 
 // Runs only on server side and populates the state data for the components
-export const getServerSideProps = async ({ req, res, params, resolvedUrl}) => {
+export const getServerSideProps = async (context) => {
+  const queryClient = new QueryClient();
+  await Promise.all([
+    // loading initial gallery coupons on server-side
+    queryClient.prefetchQuery('getHeader', getHeader, {
+      staleTime: Infinity // the data never goes stale unless the query is invalidated
+    }),
+    queryClient.prefetchQuery('getFooter', getFooter, {
+      staleTime: Infinity // the data never goes stale unless the query is invalidated
+    })
+  ]);
 
+  const {req, res, query} = context;
   // TODO: fix the url condition based on desktop and mobile like '/trains/d' or '/trains'
-  const { url: key = '' } = req;
+  //const { url: key = '' } = req;
+  //const keyUrl = key.split('?')[0]; 
 	const { NODE_ENV } = process.env;
 	const isMobile = isMobileDevice(req.headers['user-agent']);
-	const cb = req.query?.cb;
-	const hcb = req.query?.hcb;
+	const cb = query?.cb;
+	const hcb = query?.hcb;
   const cacheConfigReq = USE_REDIS_CACHE_SEO && NODE_ENV === 'production';
   //console.log("cb,hcb,NODE_ENV=>",cb, hcb, NODE_ENV);
-  const sendFaqTemplate = await checkFaqTemplate(cb,hcb,cacheConfigReq,key,req ,res, isMobile);
-
+  const sendFaqTemplate = await checkFaqTemplate(cb,hcb,cacheConfigReq,'/trains',req ,res, isMobile);
 
   return {
     props: {
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
       faqTemplate : sendFaqTemplate
     }
   };

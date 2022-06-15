@@ -1,12 +1,21 @@
 import '@styles/globals.css';
 import Head from 'next/head';
 import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
+import { Hydrate } from 'react-query/hydration';
 //import { ReactQueryDevtools } from 'react-query/devtools'
 import { wrapper } from "../redux/stores"
 //import { PreconnectLinks } from '@components/Scripts/PreconnectLinks';
 //import { GoogleAnalytics } from '@components/Analytics/GoogleAnalytics';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      retry: false,
+      refetchOnWindowFocus: false
+    }
+  }
+});
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -26,7 +35,9 @@ function MyApp({ Component, pageProps }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
       </Head>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <Hydrate state={pageProps.dehydratedState}>
+          <Component {...pageProps} />
+        </Hydrate>
         {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       </QueryClientProvider>
       {/* <GoogleAnalytics /> */}

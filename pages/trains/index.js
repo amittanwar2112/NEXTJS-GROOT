@@ -56,13 +56,10 @@ export default function TrainHome(props) {
 export const getServerSideProps = async (context) => {
   const queryClient = new QueryClient();
   await Promise.all([
-    // loading initial gallery coupons on server-side
+    // getting header data on server-side
     queryClient.prefetchQuery('getHeader', getHeader, {
       staleTime: Infinity // the data never goes stale unless the query is invalidated
     }),
-    queryClient.prefetchQuery('getFooter', getFooter, {
-      staleTime: Infinity // the data never goes stale unless the query is invalidated
-    })
   ]);
 
   const {req, res, query} = context;

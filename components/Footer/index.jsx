@@ -3,8 +3,6 @@ import nextConfig from 'next/config'
 const Footer = function({ needProductInfo = true, needFrequentTrains = true }) {
 const footerData =   [];
 const { publicRuntimeConfig, serverRuntimeConfig} = nextConfig()
-console.log(process.env ,'FOOTER_DATA')
-console.log(serverRuntimeConfig ,'FOOTER_DATA1')
 //  const footerData = JSON.parse(nextConfig.footerContsant) || [];
   return (
     <div className="footerBox posRel">

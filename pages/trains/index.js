@@ -41,14 +41,19 @@ export default function TrainHome(props) {
   },[])
 
   return (
-    <>
-      <Header />
-      <HomeContextProvider>
-        <TrainHomeContainer isLoggedIn={isLoggedIn} hasLoginApiResponseRecieved={hasLoginApiResponseRecieved}/>
-      </HomeContextProvider>
-      <Faq faqTemplateData={faqTemplate} />
-      <Footer/>
-    </>
+    
+    <div style={{display:'flex',flexDirection:'column'}}>
+        <Header />
+        <HomeContextProvider>
+          <TrainHomeContainer isLoggedIn={isLoggedIn} hasLoginApiResponseRecieved={hasLoginApiResponseRecieved}/>
+        </HomeContextProvider>
+        <div style={{backgroundColor:'#eff3f8;'}}>
+        <Faq faqTemplateData={faqTemplate} />
+        </div>
+        <div>
+        <Footer/>
+        </div> 
+    </div>  
   );
 }
 

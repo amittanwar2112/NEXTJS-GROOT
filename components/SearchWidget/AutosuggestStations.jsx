@@ -117,7 +117,8 @@ class AutoSuggestStations extends Component {
 		});
 		const msg = this.props.isSrc ? 'invalidSrc' : 'invalidDest';
 		this.props.resetErrorMessage(msg);
-		this.autoSuggestRef.current.autosuggestInputRef.current.updateInputBox(`${suggestion.irctc_code} , ${suggestion.dn}`);
+		this.autoSuggestRef.current.autosuggestInputRef.current.inputRef.current.value=`${suggestion.irctc_code} , ${suggestion.dn}`;
+		// this.autoSuggestRef.current.autosuggestInputRef.current.inputRef.current.updateInputBox(`${suggestion.irctc_code} , ${suggestion.dn}`);
 		this.setState({
 			suggestions: [],
 		});
@@ -181,14 +182,14 @@ class AutoSuggestStations extends Component {
 			const {inputProps, isInvalid, isSrc, setInputId = '', value = '', labelClassName = '', autoSuggestClassName = '', inputStyle = ''} = this.props;
 			// const className = 'widgetInput width100' + (isInvalid ? 'errorMsg' : '');
 	    return (
-				<label className={labelClassName}>
-          <p className="grey50 ico16 padB5">{this.label}</p>
-          <AutoSuggest autoSuggestClassName={autoSuggestClassName} ref={this.autoSuggestRef} callback={this.onNewSearchQuery}
-            suggestions={suggestions} listItemMarkup={this.listItemMarkup} handleInputFocus={this.handleInputFocus}
-            suggestionClicked={this.suggestionClicked} placeholder={this.placeHolder}
-            maxItems={10} delay={300} outSideClick={this.outSideClick} handleKeyUp={this.handleKeyUp}
-            showRecentsAndPopular={showRecentsAndPopular} closeClicked={this.closeClicked} setInputId={setInputId} inputStyle={inputStyle} />
-				</label>
+			<label className={labelClassName}>
+					<p className="grey50 ico16 padB5">{this.label}</p>
+					<AutoSuggest autoSuggestClassName={autoSuggestClassName} ref={this.autoSuggestRef} callback={this.onNewSearchQuery}
+						suggestions={suggestions} listItemMarkup={this.listItemMarkup} handleInputFocus={this.handleInputFocus}
+						suggestionClicked={this.suggestionClicked} placeholder={this.placeHolder}
+						maxItems={10} delay={300} outSideClick={this.outSideClick} handleKeyUp={this.handleKeyUp}
+						showRecentsAndPopular={showRecentsAndPopular} closeClicked={this.closeClicked} setInputId={setInputId} inputStyle={inputStyle} />
+			</label>
 	    );
 	}
 }

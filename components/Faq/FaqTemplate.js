@@ -63,8 +63,8 @@ async function generateFaqTemplate(req,path,metaData) {
         }
         const isChecked = expand ? 'checked' : '';
         const template = 
-        `<section class="trainsfaqouterWrap" style=max-width:1200px  itemscope="" itemtype="https://schema.org/FAQPage">
-        <div class="width100 fl">
+        `<section class="trainsfaqouterWrap  style="max-width:1200px" itemscope="" itemtype="https://schema.org/FAQPage">
+        <div class="width100 ">
           ${
             content ?
             `<div class="contentWrap marginB15">${marked(content)}</div>` :
@@ -172,20 +172,20 @@ function generatePopularTemplate(linksData) {
     const { title = '', links = []} = linksData;
     if (title && links && links.length > 0) {
         return (
-            `<div class="width100 fl padT10 padB20 padL5">
+            `<div class="width100  padT10 padB20 padL5">
                 <p class="ico16 fmed blueLight">${marked(title)}</p>
             </div>
-            <div class="col-md-12 col-xs-12 col-sm-12 padB15">
+            <div class="padB15 popularWrap">
             ${
                 links.map((item) => {
                     return (
-                    `<div class="col-md-4 col-xs-12 col-sm-4 pad0 marginB10">
-                        <div class="fl padR5 padT2" style="width: 5%">
+                    `<div class="pad0  marginB10">
+                        <div class=" padR5 padT2" style="width: 5%">
                             <i class="icon-trains-new ico15 greyLight"></i>
                         </div>
-                        <div class="fl padL5" style="width: 95%">
-                            <div class="ico16">${marked(item.heading)}</div>
-                            <p class="ico12 padT5">${marked(item.subheading)}</p>
+                        <div class=" padL5" style="width: 95%;">
+                            <div class="ico16 ">${marked(item.heading)}</div>
+                            <div class="ico12  padT5">${marked(item.subheading)}</div>
                         </div>
                     </div>`
                     );
@@ -202,7 +202,7 @@ function generateInterlinksTemplate(interlinks) {
     const { train_routes = null, train_name = null } = interlinks[0];
     return (
         `<section class="popularSearchWrap">
-            <section class="width100 fl padT20">
+            <section class="width100  padT20">
                 <div class="popularContainerWrap marginB20">
                     ${generatePopularTemplate(train_routes)}
                     ${generatePopularTemplate(train_name)}

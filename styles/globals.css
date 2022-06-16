@@ -2110,3 +2110,11 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 .curPoint:hover {
   color: #f26722
 }
+
+.popularWrap{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.popularWrap1{
+  width: max-content;
+}

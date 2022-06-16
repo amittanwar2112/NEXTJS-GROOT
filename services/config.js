@@ -1,8 +1,9 @@
-const NODE_ENV = process.env.NODE_ENV;
+export const USE_REDIS_CACHE_SEO = true;
+export const GO_TRAINS = process.env.NEXT_PUBLIC_GO_TRAINS;
+export const isServer = typeof window === 'undefined';
 
 export const HEADER_URL = 'http://growth-gi-common-web.ecs.mmt/growth/happyheader/?lobname=trains';
 export const FOOTER_DATA_URL = 'https://pageroverprodpp.goibibo.com/gt_rail/api/v1/get_footer_links/';
-
 export const FOOTER_DATA = [
   {
 
@@ -520,7 +521,6 @@ export const FOOTER_DATA = [
 
   }
 ];
-
 export const SEO_META_DATA = 
 {
   "pnr_status_json": {
@@ -830,5 +830,3 @@ export const SEO_META_DATA =
     "success": true
 }
 }
-
-export const USE_REDIS_CACHE_SEO = true;

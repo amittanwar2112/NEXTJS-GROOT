@@ -14,8 +14,8 @@ import { pushToGa } from '@helpers/gaEvents';
 import { knowIfUserIsLoggedIn } from '@helpers/api/commonApi';
 import { initiateConfig } from '@helpers/utils/adConfig';
 import { isMobileDevice } from '@helpers/serverUtils';
-import { USE_REDIS_CACHE_SEO,SEO_META_DATA } from '@services/config';
-import { getHeader, getFooter } from '@services/headerfooter';
+import { USE_REDIS_CACHE_SEO } from '@services/config';
+import { getHeader } from '@services/headerfooter';
 
 const Footer = dynamic(() => import('@components/Footer'));
 

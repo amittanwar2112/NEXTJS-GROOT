@@ -1,4 +1,5 @@
 import { fetchResponse } from './commonApi';
+import {GO_TRAINS} from '@services/config';
 export function knowMyTrain(src = '', des = '') {
   const url = `${GO_TRAINS}/v1/search/find_trains_autosuggest/${src}/${des}`;
   return fetchResponse(url);

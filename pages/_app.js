@@ -2,8 +2,9 @@ import '@styles/globals.css';
 import Head from 'next/head';
 import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
+import ErrorBoundary from '@components/ErrorBoundry'
 //import { ReactQueryDevtools } from 'react-query/devtools'
-import { wrapper } from "../redux/stores"
+//import { wrapper } from "../redux/stores"
 //import { PreconnectLinks } from '@components/Scripts/PreconnectLinks';
 //import { GoogleAnalytics } from '@components/Analytics/GoogleAnalytics';
 
@@ -36,7 +37,9 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <Component {...pageProps} />
+          <ErrorBoundary FallbackComponent={<div>Error Found, check the console</div>}>
+            <Component {...pageProps} />
+          </ErrorBoundary>
         </Hydrate>
         {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       </QueryClientProvider>
@@ -45,4 +48,5 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default wrapper.withRedux(MyApp);
+export default MyApp;
+//export default wrapper.withRedux(MyApp);

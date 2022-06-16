@@ -145,7 +145,7 @@ const CalendarMain = ( { resetErrorMessage = () => {} } ) => {
 
     return (
       <div className={`${styles.DayPickerDaywrap} ${styles.curPoint}`} >
-        <div className={`${styles.DayPickerDay} ${styles.txtCenter} ${styles.addedClass} ${styles.availabilityStatus}`}  style={bgStyle+(isDisabled ? "pointer-events:none;" : "")} onClick={() => {handleDateClick({isDisabled, dateVal}); updateDate();}}>
+        <div className={`${styles.DayPickerDay} ${styles.txtCenter} ${styles.addedClass} ${styles.availabilityStatus}`}  style={{bgStyle} + isDisabled ? {pointerEvents:'none'} : ""} onClick={() => {handleDateClick({isDisabled, dateVal}); updateDate();}}>
           {dateVal}
         </div>
         {(showAvl && availability.length && availability[dateVal-1] && availability[dateVal-1].status && (

@@ -4,7 +4,7 @@ import { gtmTag, gtmURL } from './config';
 
 const isClient = typeof window !== 'undefined';
 
-export const GoogleAnalytics = () => {
+const GoogleAnalytics = () => {
   if (isClient) {
     return (
       <Head>
@@ -30,3 +30,5 @@ export const GoogleAnalytics = () => {
     return null;
   }
 };
+
+export default GoogleAnalytics;

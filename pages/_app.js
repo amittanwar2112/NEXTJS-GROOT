@@ -6,7 +6,10 @@ import ErrorBoundary from '@components/ErrorBoundry'
 //import { ReactQueryDevtools } from 'react-query/devtools'
 //import { wrapper } from "../redux/stores"
 //import { PreconnectLinks } from '@components/Scripts/PreconnectLinks';
-//import { GoogleAnalytics } from '@components/Analytics/GoogleAnalytics';
+import Analytics from '@components/Analytics';
+import { pingScript, swRegisterScript, detectNetworkOffline } from '@helpers/serverUtils';
+import { isMobile } from '@helpers/utils';
+import Script from 'next/script'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,6 +20,7 @@ const queryClient = new QueryClient({
     }
   }
 });
+let flavour = isMobile() ? 'mweb': 'dweb';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -34,16 +38,24 @@ function MyApp({ Component, pageProps }) {
           crossOrigin=""
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <script type="text/javascript">
+					var starttime = new Date();
+				</script>
       </Head>
+      <Script id="mobileCheck" charSet="UTF-8" dangerouslySetInnerHTML={{ __html: `window.__mweb = ${isMobile()}` }} />
+      <Script id="pingScript" type="text/javascript" dangerouslySetInnerHTML={{ __html: pingScript(flavour) }} />
+      <Script id="swRegisterScript" type="text/javascript" dangerouslySetInnerHTML={{ __html: swRegisterScript() }} />
+      <Script id="networkCheck" dangerouslySetInnerHTML={{ __html: detectNetworkOffline() }} />
+      <Script type="application/javascript" src="https://jsak.goibibo.com/adTech_v1.0/adScript/build/version-gi.min.js" />
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <ErrorBoundary FallbackComponent={<div>Error Found, check the console</div>}>
+          <ErrorBoundary FallbackComponent={<div>Error Found, Please check the console</div>}>
             <Component {...pageProps} />
           </ErrorBoundary>
         </Hydrate>
         {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       </QueryClientProvider>
-      {/* <GoogleAnalytics /> */}
+      <Analytics />
     </>
   );
 }

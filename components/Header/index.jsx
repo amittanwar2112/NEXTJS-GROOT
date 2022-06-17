@@ -1,5 +1,5 @@
 import { getHeader } from '@services/headerfooter';
-import { useEffect, useState } from 'react';
+//import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import Head from 'next/head';
 import Script from 'next/script'
@@ -8,14 +8,14 @@ const isStickyHeader = true;
 const isloginPersuation = false;
 
 export default function Header() {
-  const [render, setRender] = useState(false);
+  // const [render, setRender] = useState(false);
   const { data, isLoading, error } = useQuery('getHeader', getHeader, {
     staleTime: Infinity
   });
 
-  useEffect(() => {
-    setRender(true);
- }, []);
+//   useEffect(() => {
+//     setRender(true);
+//  }, []);
 
   function handleLogoutSuccess(){
 		window.location.reload();
@@ -23,7 +23,7 @@ export default function Header() {
 
   if (isLoading) return 'Loading...'
   if (error) return 'Something went wrong'
-  const { html, criticalStyles, js } = data;
+  const { html, criticalStyles, js } = data || {};
   return (
     <>
       <Head>
@@ -44,7 +44,7 @@ export default function Header() {
           })
         }}
       />
-      <div dangerouslySetInnerHTML={{ __html: render && html }} className="headerContainer"/>
+      <div dangerouslySetInnerHTML={{ __html: html }} className="headerContainer"/>
     </>
   );
 }

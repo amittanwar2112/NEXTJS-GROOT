@@ -1,5 +1,5 @@
 import styles from '../../styles/Footer.module.css';
-export default (props) => {
+const FooterFrequentTrains = (props) => {
   const { footerItem = {} } = props;
   const { block_title = '', links_data = [] } = footerItem;
   return (
@@ -9,9 +9,9 @@ export default (props) => {
         {block_title}
       </p>
       <ul className={`${styles.pageFtrCnt__topTrnsLstCnt} ${styles.footerLinks}`}>
-        {links_data.map((linkItem) => {
+        {links_data.map((linkItem,index) => {
           return (
-            <li className={`${styles.font14} ${styles.lineHight18} ${styles.appendTop4}`}>
+            <li key={index} className={`${styles.font14} ${styles.lineHight18} ${styles.appendTop4}`}>
               <a href={linkItem.link}>{linkItem.meta_title} </a>
               <span style={{ paddingRight: '3px' }}>|</span>
             </li>
@@ -21,3 +21,5 @@ export default (props) => {
     </div>
   );
 };
+
+export default FooterFrequentTrains;

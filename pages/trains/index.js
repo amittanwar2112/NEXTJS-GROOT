@@ -26,18 +26,17 @@ export default function TrainHome(props) {
 
   useEffect(() => {
     loadSiemaCarousel('carousel');
-    // TODO: need to fix this
-    //initiateConfig('landing');
+    initiateConfig('landing');
     pushToGa('home-page-loaded');
     updatePing();
-    // knowIfUserIsLoggedIn().then(resp => {
-    //   if(resp) {
-    //     setIsLoggedIn(true);
-    //     setHasLoginApiResponseRecieved(true);
-    //   } else {
-    //     setHasLoginApiResponseRecieved(true);
-    //   }
-    // });
+    knowIfUserIsLoggedIn().then(resp => {
+      if(resp) {
+        setIsLoggedIn(true);
+        setHasLoginApiResponseRecieved(true);
+      } else {
+        setHasLoginApiResponseRecieved(true);
+      }
+    });
   }, []);
 
   return (

@@ -17,7 +17,6 @@ export function customTemplatePlaceholder({type, text, subtext = ''}) {
 
 export function detectNetworkOffline() {
   return `
-    <script>
     function detectNetworkHandler(event) {
       console.log('fired');
       const detectNetworkOfflineDiv = document.querySelector('#detectNetworkOfflineDiv');
@@ -37,14 +36,12 @@ export function detectNetworkOffline() {
 
     window.addEventListener('online', detectNetworkHandler);
     window.addEventListener('offline', detectNetworkHandler);
-    </script>
   `;
 }
 
 
 export function pingScript(flavour) {
   return `
-    <script type="text/javascript">
       var jsLoaded = false;
       var vendorLoaded = false;
       function pageSeen(urlTag, storageInfo) {
@@ -79,13 +76,11 @@ export function pingScript(flavour) {
           });
         }
       });
-    </script>
   `;
 }
 
 export function swRegisterScript() {
   return `
-    <script type="text/javascript">
       function checkServiceWorker() {
         if(!('serviceWorker' in navigator) && !('PushManager' in window)){
           return false;
@@ -98,7 +93,6 @@ export function swRegisterScript() {
         }
       }
       registerWorker();
-    </script>
   `;
 }
 
@@ -114,19 +108,19 @@ export function isMobileDevice(ua) {
   return !!output;
 }
 
-export function getAdScript(needAdTechScript, pageName) {
-	if(!needAdTechScript) {
-		return '';
-	} else {
-		return (`
-				<script
-					src="https://jsak.goibibo.com/adTech_v1.0/adScript/build/version-gi.min.js"
-					type="application/javascript"
-					async
-				></script>
-		`);
-	}
-}
+// export function getAdScript(needAdTechScript, pageName) {
+// 	if(!needAdTechScript) {
+// 		return '';
+// 	} else {
+// 		return (`
+// 				<script
+// 					src="https://jsak.goibibo.com/adTech_v1.0/adScript/build/version-gi.min.js"
+// 					type="application/javascript"
+// 					async
+// 				></script>
+// 		`);
+// 	}
+// }
 
 
 export function getThankyouScript(response,reqQuery){

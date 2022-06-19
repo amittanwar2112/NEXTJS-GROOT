@@ -1,4 +1,5 @@
 import '@styles/globals.css';
+import '@styles/googleFont.css';
 import Head from 'next/head';
 import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
@@ -30,14 +31,6 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
         {/* <PreconnectLinks /> */}
-        <link rel="preconnect" href="https://fonts.gstatic.com"/>
-        <link
-          rel="preload"
-          href="https://goibibo.ibcdn.com/styleguide/css/fonts/trains/gotrains_v4.woff2?uufuan"
-          as="font"
-          crossOrigin=""
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <script type="text/javascript">
 					var starttime = new Date();
 				</script>

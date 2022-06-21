@@ -48,7 +48,7 @@ export default function TrainHome(props) {
           hasLoginApiResponseRecieved={hasLoginApiResponseRecieved}
         />
       </HomeContextProvider>
-      <div style={{ backgroundColor: '#eff3f8;' }}>
+      <div style={{ backgroundColor: '#eff3f8' }}>
         <Faq faqTemplateData={faqTemplate} />
       </div>
       <div>

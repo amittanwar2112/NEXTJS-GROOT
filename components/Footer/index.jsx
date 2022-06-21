@@ -81,7 +81,7 @@ const Footer = function ({ needProductInfo = true, needFrequentTrains = true }) 
               </li>
               <li
                 className={`${styles.font14} ${styles.lineHight18} ${styles.blueText2} ${styles.appendTop14}`}>
-                <a href="https://www.goibibo.com/careers/" target="_blank" rel="noopener">
+                <a href="https://www.goibibo.com/careers/" target="_blank" rel="noreferrer noopener">
                   Careers
                 </a>
               </li>
@@ -101,7 +101,7 @@ const Footer = function ({ needProductInfo = true, needFrequentTrains = true }) 
               </li>
               <li
                 className={`${styles.font14} ${styles.lineHight18} ${styles.blueText2} ${styles.appendTop14}`}>
-                <a href="https://tech.goibibo.com/" target="_blank" rel="noopener">
+                <a href="https://tech.goibibo.com/" target="_blank" rel="noreferrer noopener">
                   Technology@Goibibo
                 </a>
               </li>
@@ -231,7 +231,7 @@ const Footer = function ({ needProductInfo = true, needFrequentTrains = true }) 
               <div className={`${styles.pageFtrCnt__flwSmIcnDweb}`}>
                 <a
                   target="_blank"
-                  rel="noopener"
+                  rel="noreferrer noopener"
                   href="http://facebook.com/goibibo"
                   className="fl padR10"
                   title="Facebook">
@@ -242,7 +242,7 @@ const Footer = function ({ needProductInfo = true, needFrequentTrains = true }) 
               <div className={`${styles.pageFtrCnt__flwSmIcnDweb} ${styles.appendLeft50}`}>
                 <a
                   target="_blank"
-                  rel="noopener"
+                  rel="noreferrer noopener"
                   href="http://twitter.com/goibibo"
                   className="fl padR10"
                   title="Twitter">
@@ -325,15 +325,14 @@ const Footer = function ({ needProductInfo = true, needFrequentTrains = true }) 
             <div className={`${styles.makeFlex}`}>
               <a
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer noopener"
                 href="http://www.makemytrip.com/"
                 aria-label="visit makemytrip">
                 <span className={`${styles.spriteNew} ${styles.mmtLogo}`}></span>
               </a>
               <a
-                rel="nofollow"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer noopener"
                 href="http://www.redbus.in/"
                 aria-label="visit redbus">
                 <span className={`${styles.spriteNew} ${styles.redBusLogo}`}></span>

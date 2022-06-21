@@ -6,7 +6,6 @@
     "dev": "NODE_ENV=development node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "start:prod": "pm2 start node --name groot -i max server.js",
     "format": "prettier --write './**/*.{js,jsx,css,json}' --config ./.prettierrc",
     "lint": "next lint"
   },

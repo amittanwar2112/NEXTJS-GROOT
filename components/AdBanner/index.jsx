@@ -5,10 +5,10 @@ function AdBanner(props) {
   return (
     <section className={`${styles.homeAdBannerWrap}`}>
       <div className={`${styles.adBannerWrap}`}>
-        <img
+        <Image
           src="https://gos3.ibcdn.com/TrainsHomeBanner-1610443393.png"
-          width="100%"
-          height="19rem"
+          width={590}
+          height={190}
           alt="banner"
         />
       </div>

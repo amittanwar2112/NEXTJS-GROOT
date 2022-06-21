@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { pushTapEvent } from '@helpers/gaEvents';
 import styles from '../../styles/Home.module.css';
 
@@ -42,7 +43,7 @@ const InformationServices = ({ currentPage = '', currentPageGa = '' }) => {
   }
 
   const comp = (src) => {
-    return <img src={src} alt="PL" />;
+    return <Image src={src} alt="PL" width="40px" height="40px" />;
   };
   return (
     <section className="marginTB20">

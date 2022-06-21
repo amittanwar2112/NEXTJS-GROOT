@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { pushTapEvent } from '@helpers/gaEvents';
 import styles from '../../styles/Home.module.css';
 
@@ -42,10 +43,11 @@ const IrctcSettings = ({ currentPage = '', currentPageGa = '' }) => {
               }}>
               <div className={`${styles.flex} ${styles.row} ${styles.alignCenter} width90`}>
                 <span className="padR5">
-                  <img
+                  <Image
                     src="https://gos3.ibcdn.com/irctclogo-1602059281.png"
                     width="40px"
                     height="40px"
+                    alt=''
                   />
                 </span>
                 <span className="fontQuick ico16 goBlue fb lh1-2">{serviceName}</span>

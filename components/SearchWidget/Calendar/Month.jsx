@@ -39,7 +39,7 @@ const Month = ({
 
   return (
     <div className="DayPicker-Month">
-      <div className="DayPicker-Caption" role="heading">
+      <div className="DayPicker-Caption" role="heading" aria-level="1">
         {getFormattedDate(firstDate, 'mmmm yyyy')}
       </div>
       <div className="DayPicker-Weekdays">

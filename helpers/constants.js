@@ -1,10 +1,11 @@
 export const loading = 'Loading...';
 export const errorText = 'Something went wrong, Please try again';
-export const errorToastMessage = 'Sorry, we are getting some issue right now. Please try again later.';
+export const errorToastMessage =
+  'Sorry, we are getting some issue right now. Please try again later.';
 
 export const ALL_TRAIN_ROUTES = {
   HEALTH_CHECK: '/groot/ping*',
-  HEALTH_CHECK_API:'/trains/api/health',
+  HEALTH_CHECK_API: '/trains/api/health',
   STATUS_INFO: '/trains/statusinfo*',
   METRO_FAQ: '/trains/metro-faq*',
   WIDGET: '/trains/widget/',
@@ -50,7 +51,8 @@ export const IRCTC_LOGO_URL = 'https://gos3.ibcdn.com/itctcnew_logo-1573024091.p
 /* containers/forgotpassword */
 export const FALLBACK_FORGOT_PWD_ERR_MSG = 'Invalid User ID or Mobile Number!';
 export const FORGOTPASSWORD_HEADING = 'Change IRCTC Password';
-export const RESET_PWD_ATTEMPT_TEXT = 'Maximum of 5 attempts to generate Passwords are allowed daily by IRCTC';
+export const RESET_PWD_ATTEMPT_TEXT =
+  'Maximum of 5 attempts to generate Passwords are allowed daily by IRCTC';
 export const USER_ID_INPUT_HEADING = 'IRCTC User ID';
 export const EMPTY_USER_ID_ERR_MSG = 'User ID cannot be empty';
 export const INVALID_USER_ID = 'Invalid User ID';
@@ -68,7 +70,6 @@ export const PLEASE_WAIT_FOR_OTP_MSG = 'Please wait 2 mins for the SMS to reach 
 export const SMS_SENT_LINE1 = 'IRCTC has sent an SMS with the Password for the userID: ';
 export const SMS_SENT_LINE2 = ' on your registered mobile number ';
 
-
 /* presentation/successscreen */
 export const CONTINUE_BOOKING = 'Continue Booking';
 
@@ -78,7 +79,8 @@ export const CHANGE_IRCTC_USERNAME_HEADING = 'Retrieve IRCTC Username';
 export const REG_EMAIL_ID_OR_MOB_LABEL = 'IRCTC Registered Email ID / Mobile No.';
 export const IRCTC_REG_DOB = 'Date of Birth ( As on IRCTC Account )';
 export const REQ_USER_ID = 'Request User ID';
-export const SUB_TEXT_REQ_USER_ID = 'You will receive an email from IRCTC with your registered IRCTC userID.';
+export const SUB_TEXT_REQ_USER_ID =
+  'You will receive an email from IRCTC with your registered IRCTC userID.';
 export const INVALID_DOB = 'Invalid Date of Birth';
 export const INVALID_EMAIL_ID = 'Invalid User Email';
 export const EMAIL_MOB_PLACE_HOLDER = 'IRCTC Email ID / Mobile No.';
@@ -100,58 +102,58 @@ export const ERR_MSG_CONNECTOR = ' and ';
 
 export const POPULAR_STATIONS_SUGGEST = [
   {
-    "dn": "New Delhi Railway Station",
-    "_id": "8884285607022097366",
-    "irctc_code": "NDLS",
-    "t": "landmark",
-    "xtr": {
-      "st_n": "Delhi",
-      "cn": "Delhi",
-      "cid": "2820046943342890302"
+    dn: 'New Delhi Railway Station',
+    _id: '8884285607022097366',
+    irctc_code: 'NDLS',
+    t: 'landmark',
+    xtr: {
+      st_n: 'Delhi',
+      cn: 'Delhi',
+      cid: '2820046943342890302'
     }
   },
   {
-    "dn": "Bangalore City Junction",
-    "_id": "9134065066842566418",
-    "irctc_code": "SBC",
-    "t": "landmark",
-    "xtr": {
-      "st_n": "Karnataka",
-      "cn": "Bangalore",
-      "cid": "6771549831164675055"
+    dn: 'Bangalore City Junction',
+    _id: '9134065066842566418',
+    irctc_code: 'SBC',
+    t: 'landmark',
+    xtr: {
+      st_n: 'Karnataka',
+      cn: 'Bangalore',
+      cid: '6771549831164675055'
     }
   },
   {
-    "dn": "Mumbai Cst Railway Station",
-    "_id": "7554713892384416586",
-    "irctc_code": "CSTM",
-    "t": "landmark",
-    "xtr": {
-      "st_n": "Maharashtra",
-      "cn": "Mumbai",
-      "cid": "4213513766539949483"
+    dn: 'Mumbai Cst Railway Station',
+    _id: '7554713892384416586',
+    irctc_code: 'CSTM',
+    t: 'landmark',
+    xtr: {
+      st_n: 'Maharashtra',
+      cn: 'Mumbai',
+      cid: '4213513766539949483'
     }
   },
   {
-    "dn": "Varanasi Junction",
-    "_id": "427541232348636180",
-    "irctc_code": "BSB",
-    "t": "landmark",
-    "xtr": {
-      "st_n": "Uttar Pradesh",
-      "cn": "Varanasi",
-      "cid": "710870868236923145"
+    dn: 'Varanasi Junction',
+    _id: '427541232348636180',
+    irctc_code: 'BSB',
+    t: 'landmark',
+    xtr: {
+      st_n: 'Uttar Pradesh',
+      cn: 'Varanasi',
+      cid: '710870868236923145'
     }
   },
   {
-    "dn": "Allahabad Junction",
-    "_id": "455816896693343870",
-    "irctc_code": "ALD",
-    "t": "landmark",
-    "xtr": {
-      "st_n": "Uttar Pradesh",
-      "cn": "Allahabad",
-      "cid": "2764189059814305450"
+    dn: 'Allahabad Junction',
+    _id: '455816896693343870',
+    irctc_code: 'ALD',
+    t: 'landmark',
+    xtr: {
+      st_n: 'Uttar Pradesh',
+      cn: 'Allahabad',
+      cid: '2764189059814305450'
     }
   }
 ];

@@ -1,13 +1,13 @@
 import GoogleAnalytics from './GoogleAnalytics';
-import Hotjar from './hotjar'
+import Hotjar from './hotjar';
 
 const Analytics = () => {
   return (
     <>
-      <GoogleAnalytics/>
-      <Hotjar/>
+      <GoogleAnalytics />
+      <Hotjar />
     </>
-  )
-}
+  );
+};
 
 export default Analytics;

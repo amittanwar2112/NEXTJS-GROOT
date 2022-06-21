@@ -23,12 +23,12 @@ function pubSubRedis(client, channelName) {
 
   // subscribe to channel - channelName
   sub.subscribe(channelName);
-  sub.on("subscribe", function (channel, count) {
+  sub.on('subscribe', function (channel, count) {
     //logger.info('Subscribed to : ' + channelName);
     console.log('Subscribed to : ' + channelName);
   });
 
-  sub.on("message", function (channel, message) {
+  sub.on('message', function (channel, message) {
     //logger.info("Message from channel: " + `${channel}`);
     //logger.info(`Message is: ${message}`);
     if (message && message.length > 0) {
@@ -49,6 +49,6 @@ function pubSubRedis(client, channelName) {
 }
 
 module.exports = {
-  pubSubRedis,
+  pubSubRedis
   // publishToChannel
 };

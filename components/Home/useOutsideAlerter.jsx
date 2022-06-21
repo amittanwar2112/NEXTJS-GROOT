@@ -7,19 +7,23 @@ function useOutsideAlerter(ref, cb) {
     }
   }
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 }
 
 function OutsideAlerter(props) {
   const wrapperRef = useRef(null);
-  const { cb = () => {}, styles = '', inlineStyle = ''} = props;
+  const { cb = () => {}, styles = '', inlineStyle = '' } = props;
   useOutsideAlerter(wrapperRef, cb);
 
-  return <div ref={wrapperRef} className={styles} style={{inlineStyle}}>{props.children}</div>;
+  return (
+    <div ref={wrapperRef} className={styles} style={{ inlineStyle }}>
+      {props.children}
+    </div>
+  );
 }
 
 export default OutsideAlerter;

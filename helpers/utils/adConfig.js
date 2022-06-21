@@ -18,9 +18,9 @@ export function initiateConfig(pageName) {
       });
     },
     onError: function () {
-      let $adPlaceHolder = document.querySelector("#AdPlaceholder");
-      if($adPlaceHolder) {
-        $adPlaceHolder.style.display="none";
+      let $adPlaceHolder = document.querySelector('#AdPlaceholder');
+      if ($adPlaceHolder) {
+        $adPlaceHolder.style.display = 'none';
       }
       logEvent({
         event: 'adbanner_error',
@@ -28,8 +28,8 @@ export function initiateConfig(pageName) {
         eventAction: pageName
       });
     },
-    ORG: "gi",
-    AUTH_COOKIE_KEY: "OAUTH-GOIBIBO",
+    ORG: 'gi',
+    AUTH_COOKIE_KEY: 'OAUTH-GOIBIBO'
   };
   if (window.AdMMTSDK) {
     window.AdMMTSDK.init(initialConfig);

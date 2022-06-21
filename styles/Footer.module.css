@@ -1,227 +1,314 @@
-.pageFtrCnt {margin-top: 30px;}
-.pageFtrCnt__grid {background-color: #fff;display: grid;grid-template-columns: repeat(2,1fr);padding: 28px 16px 40px;column-gap: 33px;row-gap: 40px;}
-.pageFtrCnt__lstCnt {margin-top: 16px;}
-.pageFtrCnt__topTrnsCnt {background-color: #fff;padding: 0 16px 30px;}
-.pageFtrCnt__topTrnsLstCnt {margin-top: 10px;}
-.pageFtrCnt__lstCnt a , .pageFtrCnt__topTrnsLstCnt a {color: #2276e3;}
-.pageFtrCnt__flwUsCnt {padding: 12px 16px 22px;} 
-.pageFtrCnt__flwSmIcn {display: flex;align-items: center;}
-.pageFtrCnt__appDwnld {background-color: #fff;padding: 20px 16px 32px;display: flex;flex-direction: column;align-items: center;}
-.playStrIcn {width: 98px;height: 32px;}
-.appStrIcn {width: 98px;height: 32px;}
-.pageFtrCnt__pymntCnt {padding: 24px 20px;margin: 0 16px;border-top: 1px solid #E1E7EE;border-bottom: 1px solid #E1E7EE;}
-.pageFtrCnt__pymntCntwrp {background-color: #fff;}
-.pageFtrCnt__othrBrnd {display: flex;flex-direction: column;background-color: #fff;padding: 18px 16px 42px;}
-.pageFtrCnt__brndImgs {display: flex;align-items: center;justify-content: center;margin-top: 12px;}
-.mmtLogoIcn {width: 138px;height: 44px;}
-.redbusLogoIcn {width: 94px;height: 62px;margin-left: 40px;}
-.pageFtrCntDweb{margin-top: 60px;
-  background-color: #fff;}
-.footerSection{width: 1200px; margin: 0 auto;}
-.pageFtrCnt__gridDweb{
-  display: flex;
- justify-content:space-between;
-  padding: 28px 0 16px 0px;
- 
+.pageFtrCnt {
+  margin-top: 30px;
 }
-  .pageFtrCnt__gridSection{
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      padding: 40px 0 0 0px;
-      column-gap: 10px;
-  }
-  .pageFtrCnt__topTrnsCntDweb{margin-bottom: 40px;}
+.pageFtrCnt__grid {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 28px 16px 40px;
+  column-gap: 33px;
+  row-gap: 40px;
+}
+.pageFtrCnt__lstCnt {
+  margin-top: 16px;
+}
+.pageFtrCnt__topTrnsCnt {
+  background-color: #fff;
+  padding: 0 16px 30px;
+}
+.pageFtrCnt__topTrnsLstCnt {
+  margin-top: 10px;
+}
+.pageFtrCnt__lstCnt a,
+.pageFtrCnt__topTrnsLstCnt a {
+  color: #2276e3;
+}
+.pageFtrCnt__flwUsCnt {
+  padding: 12px 16px 22px;
+}
+.pageFtrCnt__flwSmIcn {
+  display: flex;
+  align-items: center;
+}
+.pageFtrCnt__appDwnld {
+  background-color: #fff;
+  padding: 20px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.playStrIcn {
+  width: 98px;
+  height: 32px;
+}
+.appStrIcn {
+  width: 98px;
+  height: 32px;
+}
+.pageFtrCnt__pymntCnt {
+  padding: 24px 20px;
+  margin: 0 16px;
+  border-top: 1px solid #e1e7ee;
+  border-bottom: 1px solid #e1e7ee;
+}
+.pageFtrCnt__pymntCntwrp {
+  background-color: #fff;
+}
+.pageFtrCnt__othrBrnd {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 18px 16px 42px;
+}
+.pageFtrCnt__brndImgs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+.mmtLogoIcn {
+  width: 138px;
+  height: 44px;
+}
+.redbusLogoIcn {
+  width: 94px;
+  height: 62px;
+  margin-left: 40px;
+}
+.pageFtrCntDweb {
+  margin-top: 60px;
+  background-color: #fff;
+}
+.footerSection {
+  width: 1200px;
+  margin: 0 auto;
+}
+.pageFtrCnt__gridDweb {
+  display: flex;
+  justify-content: space-between;
+  padding: 28px 0 16px 0px;
+}
+.pageFtrCnt__gridSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 40px 0 0 0px;
+  column-gap: 10px;
+}
+.pageFtrCnt__topTrnsCntDweb {
+  margin-bottom: 40px;
+}
 /*  */
-  
-.footerLinks li{display: inline;}
-.footerLinks li a{color: #777777}
-.footerLinks li a:hover{color: #2276E3}
-.pageFtrCnt__flwSmIcnDweb{text-align: center}
-.width120{width: 120px;}
-.marginRight75{margin-right: 75px;}
-.pageFtrCnt__appDwnldDweb{border-left: 1px solid #C2C2C2; border-right: 1px solid #c2c2c2;padding-left: 11px;}
-.pageFtrCnt__othrBrndDweb{border-top: 1px solid #C2C2C2; margin-top: 20px;}
-.appendLeft50{
+
+.footerLinks li {
+  display: inline;
+}
+.footerLinks li a {
+  color: #777777;
+}
+.footerLinks li a:hover {
+  color: #2276e3;
+}
+.pageFtrCnt__flwSmIcnDweb {
+  text-align: center;
+}
+.width120 {
+  width: 120px;
+}
+.marginRight75 {
+  margin-right: 75px;
+}
+.pageFtrCnt__appDwnldDweb {
+  border-left: 1px solid #c2c2c2;
+  border-right: 1px solid #c2c2c2;
+  padding-left: 11px;
+}
+.pageFtrCnt__othrBrndDweb {
+  border-top: 1px solid #c2c2c2;
+  margin-top: 20px;
+}
+.appendLeft50 {
   margin-left: 50px;
 }
 .paddingL14 {
-    padding-left: 14px;
+  padding-left: 14px;
 }
 .appendRight90 {
-    margin-right: 90px;
+  margin-right: 90px;
 }
 .appendRight80 {
-    margin-right: 80px;
+  margin-right: 80px;
 }
 .makeFlex.spaceBetween {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 .containerSection {
-    width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 .makeFlex {
-    display: flex;
+  display: flex;
 }
 .spriteNew {
-    background: url('https://gos3.ibcdn.com/logo_images-1652435971.png') no-repeat 0 0;
-    background-size: 575px 205px;
-    display: block;
+  background: url('https://gos3.ibcdn.com/logo_images-1652435971.png') no-repeat 0 0;
+  background-size: 575px 205px;
+  display: block;
 }
-.mmtLogo{background-position: -27px -143px;width: 101px;height: 32px;margin-right: 95px;}
-.redBusLogo{
-    background-position: -365px -88px;
-    width: 55px;
-	height: 36px;
+.mmtLogo {
+  background-position: -27px -143px;
+  width: 101px;
+  height: 32px;
+  margin-right: 95px;
+}
+.redBusLogo {
+  background-position: -365px -88px;
+  width: 55px;
+  height: 36px;
 }
 
 .playStoreLogo {
-    background-position: -145px -91px;
-    width: 96px;
-	height: 32px;
+  background-position: -145px -91px;
+  width: 96px;
+  height: 32px;
 }
 .appStoreLogo {
-    background-position:  -27px -91px;
-    width: 98px;
-	height: 32px;
+  background-position: -27px -91px;
+  width: 98px;
+  height: 32px;
 }
 .payment1 {
-    background-position:  -20px -29px;
-    width: 98px;
-	height: 46px;
+  background-position: -20px -29px;
+  width: 98px;
+  height: 46px;
 }
 .payment2 {
-    background-position: -125px -29px;
-    width: 55px;
-	height: 33px;
+  background-position: -125px -29px;
+  width: 55px;
+  height: 33px;
 }
 .payment3 {
-    background-position: -188px -29px;
-    width: 52px;
-	height: 36px;
+  background-position: -188px -29px;
+  width: 52px;
+  height: 36px;
 }
 .payment4 {
-    background-position:-249px -29px;
-    width: 55px;
-	height: 30px;
+  background-position: -249px -29px;
+  width: 55px;
+  height: 30px;
 }
 .payment5 {
-    background-position: -313px -29px;
-    width: 66px;
-	height: 33px;
+  background-position: -313px -29px;
+  width: 66px;
+  height: 33px;
 }
 .payment6 {
-    background-position: -388px -30px;
-    width: 72px;
-	height: 35px;
+  background-position: -388px -30px;
+  width: 72px;
+  height: 35px;
 }
 .payment7 {
-    background-position:-476px -30px;
-    width: 67px;
-	height: 51px;
+  background-position: -476px -30px;
+  width: 67px;
+  height: 51px;
 }
-
-
 
 .lineHight22 {
-    line-height: 22px !important;
-  }
+  line-height: 22px !important;
+}
 
-  .lineHight21 {
-    line-height: 21px !important;
-  }
-  .lineHight18 {
-    line-height: 18px !important;
-  }
-  .lineHight16 {
-    line-height: 16px !important;
-  }
-  .font18 {
-    font-size: 18px !important;
-    line-height: 18px;
-  }
-  .font16 {
-    font-size: 16px !important;
-    color: #000 !important;
-  }
-  .blackText {
-    color: #000;
-  }
-  .blueText2 {
-    color: #2276e3 !important;
-  }
-  .appendTop16 {
-    margin-top: 16px;
-  }
-  .appendTop20 {
-    margin-top: 20px;
-  }
-  .appendTop28 {
-    margin-top: 25px;
-  }
-  .appendTop8 {
-    margin-top: 8px;
-  }
-  .appendTop2 {
-    margin-top: 2px;
-  }
-  .appendTop4 {
-    margin-top: 4px;
-  }
-  .appendTop4New {
-    margin-top: 6px;
-  }
-  .appendLeft8 {
-    margin-left: 8px;
-  }
-  .appendTop14 {
-    margin-top: 14px;
-  }
-  .makeFlex.hrtlCenter {
-    align-items: center;
-  }
-  .sprite {
-    background: url("https://gos3.ibcdn.com/routePageSprite-1649317655.png")
-      no-repeat;
-    display: inline-block;
-    background-size: 150px 150px;
-    font-size: 0px;
-    flex-shrink: 0;
-  }
-  .fbIcon {
-    background-position: -4px -35px;
-    width: 32px;
-    height: 28px;
-    border-radius: 4px;
-  }
-  .twitrIcon {
-    background-position: -41px -35px;
-    width: 32px;
-    height: 28px;
-  }
-  .font12 {
-    font-size: 12px;
-    line-height: 12px;
-  }
-  .font14 {
-    font-size: 14px;
-    line-height: 14px;
-  }
-.appendBottom12{
-      margin-bottom:12px
- }
+.lineHight21 {
+  line-height: 21px !important;
+}
+.lineHight18 {
+  line-height: 18px !important;
+}
+.lineHight16 {
+  line-height: 16px !important;
+}
+.font18 {
+  font-size: 18px !important;
+  line-height: 18px;
+}
+.font16 {
+  font-size: 16px !important;
+  color: #000 !important;
+}
+.blackText {
+  color: #000;
+}
+.blueText2 {
+  color: #2276e3 !important;
+}
+.appendTop16 {
+  margin-top: 16px;
+}
+.appendTop20 {
+  margin-top: 20px;
+}
+.appendTop28 {
+  margin-top: 25px;
+}
+.appendTop8 {
+  margin-top: 8px;
+}
+.appendTop2 {
+  margin-top: 2px;
+}
+.appendTop4 {
+  margin-top: 4px;
+}
+.appendTop4New {
+  margin-top: 6px;
+}
+.appendLeft8 {
+  margin-left: 8px;
+}
+.appendTop14 {
+  margin-top: 14px;
+}
+.makeFlex.hrtlCenter {
+  align-items: center;
+}
+.sprite {
+  background: url('https://gos3.ibcdn.com/routePageSprite-1649317655.png') no-repeat;
+  display: inline-block;
+  background-size: 150px 150px;
+  font-size: 0px;
+  flex-shrink: 0;
+}
+.fbIcon {
+  background-position: -4px -35px;
+  width: 32px;
+  height: 28px;
+  border-radius: 4px;
+}
+.twitrIcon {
+  background-position: -41px -35px;
+  width: 32px;
+  height: 28px;
+}
+.font12 {
+  font-size: 12px;
+  line-height: 12px;
+}
+.font14 {
+  font-size: 14px;
+  line-height: 14px;
+}
+.appendBottom12 {
+  margin-bottom: 12px;
+}
 .lineHight14 {
-        line-height: 14px !important;
+  line-height: 14px !important;
 }
 .spriteNew {
-    background: url('https://gos3.ibcdn.com/logo_images-1652435971.png') no-repeat 0 0;
-    background-size: 575px 205px;
-    display: block;
+  background: url('https://gos3.ibcdn.com/logo_images-1652435971.png') no-repeat 0 0;
+  background-size: 575px 205px;
+  display: block;
 }
 .appendTop24 {
-    margin-top: 24px;
+  margin-top: 24px;
 }
 .boldFont {
-    font-weight: 700;
-  }
+  font-weight: 700;
+}

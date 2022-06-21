@@ -10,11 +10,11 @@ if (process.env.NODE_ENV !== 'production') {
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['gos3.ibcdn.com'],
+    domains: ['gos3.ibcdn.com']
   },
-  webpack(config,{ webpack }) {
-    config.plugins.push(new webpack.EnvironmentPlugin(envParsed))
-    return config
+  webpack(config, { webpack }) {
+    config.plugins.push(new webpack.EnvironmentPlugin(envParsed));
+    return config;
   }
 };
 

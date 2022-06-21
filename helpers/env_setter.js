@@ -1,5 +1,5 @@
 function setGlobals() {
-  const { REDIS_HOST, REDIS_PORT, REDIS_DB} = process.env;
+  const { REDIS_HOST, REDIS_PORT, REDIS_DB } = process.env;
   global.__REDISCONFIG__ = {};
   global.__REDISCONFIG__.HOST = REDIS_HOST;
   global.__REDISCONFIG__.PORT = REDIS_PORT;

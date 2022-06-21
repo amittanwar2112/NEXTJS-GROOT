@@ -7,7 +7,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta charSet="UTF-8" />
-          <link rel="preconnect" href="https://fonts.gstatic.com"/>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://goibibo.ibcdn.com" />
           <link
@@ -29,11 +29,11 @@ class MyDocument extends Document {
             crossOrigin=""
           />
           <link
-          rel="preload"
-          href="https://goibibo.ibcdn.com/styleguide/css/fonts/trains/gotrains_v4.woff2?uufuan"
-          as="font"
-          crossOrigin=""
-        />
+            rel="preload"
+            href="https://goibibo.ibcdn.com/styleguide/css/fonts/trains/gotrains_v4.woff2?uufuan"
+            as="font"
+            crossOrigin=""
+          />
         </Head>
         <body>
           <Main />

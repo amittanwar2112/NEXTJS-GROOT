@@ -29,8 +29,8 @@ export default function TrainHome(props) {
     initiateConfig('landing');
     pushToGa('home-page-loaded');
     updatePing();
-    knowIfUserIsLoggedIn().then(resp => {
-      if(resp) {
+    knowIfUserIsLoggedIn().then((resp) => {
+      if (resp) {
         setIsLoggedIn(true);
         setHasLoginApiResponseRecieved(true);
       } else {

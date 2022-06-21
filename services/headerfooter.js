@@ -21,10 +21,10 @@ export const getFooter = async () => {
     method: 'GET'
   };
   try {
-    const dataResponseObj = await fetchFromApi(url,requestOptions);
-    const hasFooterData = await dataResponseObj && dataResponseObj.status && dataResponseObj.data;
-    const footerData = hasFooterData ? hasFooterData : FOOTER_DATA
-    if(dataResponseObj.error) {
+    const dataResponseObj = await fetchFromApi(url, requestOptions);
+    const hasFooterData = (await dataResponseObj) && dataResponseObj.status && dataResponseObj.data;
+    const footerData = hasFooterData ? hasFooterData : FOOTER_DATA;
+    if (dataResponseObj.error) {
       handleError('Footer data');
     }
     return footerData;
@@ -48,6 +48,6 @@ const fetchFromApi = async (url, options) => {
   return null;
 };
 
-const handleError = function(msg = '', err = '') {
+const handleError = function (msg = '', err = '') {
   console.error('Error getting ', msg, err);
 };

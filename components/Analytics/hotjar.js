@@ -5,7 +5,8 @@ const Hotjar = () => {
   if (isClient) {
     return (
       <Head>
-        <script defer
+        <script
+          defer
           dangerouslySetInnerHTML={{
             __html: `(function(h, o, t, j, a, r) {
               h.hj = h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};

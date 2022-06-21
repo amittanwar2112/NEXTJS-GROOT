@@ -2,7 +2,7 @@ import { getHeader } from '@services/headerfooter';
 //import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import Head from 'next/head';
-import Script from 'next/script'
+import Script from 'next/script';
 
 const isStickyHeader = true;
 const isloginPersuation = false;
@@ -13,38 +13,36 @@ export default function Header() {
     staleTime: Infinity
   });
 
-//   useEffect(() => {
-//     setRender(true);
-//  }, []);
+  //   useEffect(() => {
+  //     setRender(true);
+  //  }, []);
 
-  function handleLogoutSuccess(){
-		window.location.reload();
-	}
+  function handleLogoutSuccess() {
+    window.location.reload();
+  }
 
-  if (isLoading) return 'Loading...'
-  if (error) return 'Something went wrong'
+  if (isLoading) return 'Loading...';
+  if (error) return 'Something went wrong';
   const { html, criticalStyles, js } = data || {};
   return (
     <>
       <Head>
-        <style>
-            {criticalStyles}
-        </style>
+        <style>{criticalStyles}</style>
       </Head>
-      <Script 
+      <Script
         src={js.package}
-        onLoad={() =>{
-          $HappyHeader.ready(function(){
+        onLoad={() => {
+          $HappyHeader.ready(function () {
             $HappyHeader.render({
               lobName: 'trains',
               sticky: isStickyHeader,
               onLogoutSuccess: handleLogoutSuccess,
               loginPersuation: isloginPersuation
             });
-          })
+          });
         }}
       />
-      <div dangerouslySetInnerHTML={{ __html: html }} className="headerContainer"/>
+      <div dangerouslySetInnerHTML={{ __html: html }} className="headerContainer" />
     </>
   );
 }

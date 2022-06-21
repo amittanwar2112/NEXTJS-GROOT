@@ -1,10 +1,10 @@
-import {createContext, useReducer} from 'react';
+import { createContext, useReducer } from 'react';
 import { getFormattedDate } from '@helpers/utils';
 
 const now = new Date();
 let today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0);
 const firstSelectedDate = new Date(today.setDate(today.getDate() + 1));
-const firstSelectedDateFormatted = getFormattedDate(firstSelectedDate, 'yyyymmdd')
+const firstSelectedDateFormatted = getFormattedDate(firstSelectedDate, 'yyyymmdd');
 
 export const SearchContext = createContext(null);
 
@@ -27,7 +27,7 @@ const initialState = {
 
 const searchReducer = (state, action) => {
   const { data } = action;
-  switch(action.type){
+  switch (action.type) {
     case 'UPDATE_STORE':
       return Object.assign({}, state, data);
     default:
@@ -35,15 +35,14 @@ const searchReducer = (state, action) => {
   }
 };
 
-const SearchContextProvider = (props)=>{
+const SearchContextProvider = (props) => {
+  const [storeState, dispatch] = useReducer(searchReducer, initialState);
 
-  const [storeState, dispatch] = useReducer(searchReducer,initialState)
-
-  return(
-      <SearchContext.Provider value={{storeState, dispatch}}>
-          {props.children}
-      </SearchContext.Provider>
-  )
-}
+  return (
+    <SearchContext.Provider value={{ storeState, dispatch }}>
+      {props.children}
+    </SearchContext.Provider>
+  );
+};
 
 export default SearchContextProvider;

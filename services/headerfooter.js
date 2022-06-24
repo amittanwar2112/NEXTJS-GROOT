@@ -1,4 +1,5 @@
 import { HEADER_URL, FOOTER_DATA_URL, FOOTER_DATA } from './config';
+import logger from 'next-pino/logger';
 
 export const getHeader = () => {
   const url = HEADER_URL;
@@ -10,7 +11,7 @@ export const getHeader = () => {
     const data = fetchFromApi(url, requestOptions);
     return data;
   } catch (error) {
-    //   logger.error(JSON.stringify(error));
+    logger.error(JSON.stringify(error));
     throw error;
   }
 };
@@ -39,10 +40,10 @@ const fetchFromApi = async (url, options) => {
   try {
     const res = await fetch(url, options);
     const data = await res.json();
-    //   logger.info(`Request Tahoe Method returned from DH: ${url}`);
+    logger.info(`Request Groot API Method returned from API: ${url}`);
     return data;
   } catch (e) {
-    //   logger.error(`Request Tahoe Method [FAILED] : ${url}`, e);
+    logger.error(`Request Groot API Method [FAILED] : ${url}`, e);
   }
 
   return null;

@@ -7,6 +7,7 @@ import ErrorBoundary from '@components/ErrorBoundry';
 //import { ReactQueryDevtools } from 'react-query/devtools'
 //import { wrapper } from "../redux/stores"
 //import { PreconnectLinks } from '@components/Scripts/PreconnectLinks';
+import logger from 'next-pino/logger';
 import Analytics from '@components/Analytics';
 import { pingScript, swRegisterScript, detectNetworkOffline } from '@helpers/serverUtils';
 import { isMobile } from '@helpers/utils';
@@ -21,6 +22,15 @@ const queryClient = new QueryClient({
     }
   }
 });
+
+// attach pino logger with react-query
+// Any errors thrown in any useQuery or useMutation will be logged into the setLogger function.
+setLogger({
+  log: (msg) => logger.info(msg),
+  warn: (msg) => logger.warn(msg),
+  error: (err) => logger.error(err)
+});
+
 let flavour = isMobile() ? 'mweb' : 'dweb';
 
 function MyApp({ Component, pageProps }) {

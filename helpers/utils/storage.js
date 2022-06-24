@@ -1,3 +1,4 @@
+import logger from 'next-pino/logger';
 const isClient = typeof window !== 'undefined';
 
 export const setSessionItem = (key, value) => {
@@ -31,7 +32,7 @@ export const getLocalStorageItem = (key) => {
     return isClient && JSON.parse(window.localStorage.getItem(key));
   } catch (error) {
     // do nothing
-    //logger.error(error);
+    logger.error(error);
     return JSON.parse(null);
   }
 };
@@ -41,7 +42,7 @@ export const setLocalStorageItem = (key, value) => {
     isClient && window.localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
     // do nothing
-    //logger.error(error);
+    logger.error(error);
   }
   return;
 };

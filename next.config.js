@@ -3,15 +3,16 @@ const path = require('path');
 const dotenv = require('dotenv');
 const packageFile = require('./package.json');
 
-let CDN_URL = '';
+const isProd = process.env.NODE_ENV === 'production'
 
-if (process.env.NODE_ENV === 'production') {
+let CDN_URL = '', envParsed = {};
+
+if (isProd) {
   CDN_URL = `https://goibibo.ibcdn.com/styleguide/css/${packageFile.version}/`;
   console.info(`CDN URL set to ${CDN_URL}`);
 }
 
-let envParsed = {};
-if (process.env.NODE_ENV !== 'production') {
+if (!isProd) {
   envParsed = dotenv.config({ path: '.env.local' }).parsed;
 }
 
